@@ -11,7 +11,7 @@ function GamesPage({ userName, onResetApp }) {
     {
       id: 1,
       title: "Zombies Recall",
-      description: "Test your memory against zombie hordes",
+      description: "Fight against zombie hordes",
       image: "zombierecall.png",
       category: "game"
     },
