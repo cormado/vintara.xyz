@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Página no encontrada - Vintara.xyz</title>
+    <style>
+        /* Reseteo y estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Fondo con líneas abstractas */
+        .background-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+            object-fit: cover;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        /* Contenedor principal */
+        .error-content {
+            max-width: 1200px;
+            padding: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Título 404 */
+        h1 {
+            font-size: 8rem;
+            font-weight: bold;
+            letter-spacing: -2px;
+            line-height: 1;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Mensaje */
+        h2 {
+            font-size: 2rem;
+            font-weight: normal;
+            color: #ccc;
+            margin-bottom: 40px;
+            line-height: 1.4;
+        }
+
+        /* Botón de regreso */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: #fff;
+            background-color: transparent;
+            max-width: 300px;
+        }
+
+        .btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 6rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+
+            .error-content {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 4rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="lineas.png" alt="Fondo con líneas abstractas" class="background-lines">
+    <div class="error-content">
+        <h1>404</h1>
+        <h2>Aún no disponible</h2>
+        <a href="index.html" class="btn">Volver al inicio</a>
+    </div>
+</body>
+</html>

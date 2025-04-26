@@ -1,90 +1,989 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
+    <title>Vintara.xyz - Diseño sin límites</title>
     <style>
+        /* Reseteo y estilos generales */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
         }
-        
+
+        html {
+           scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header con posición fija */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            border-radius: 0 0 25px 25px;
+            transition: padding 0.3s ease, background-color 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ccc;
+        }
+
+        /* Hero section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            padding: 80px 40px 40px;
+            overflow: hidden;
             text-align: center;
-            position: relative;
+            z-index: 1;
         }
-        
-        .container {
-            max-width: 800px;
-            padding: 3rem;
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(157, 78, 221, 0.4);
-            border: 1px solid #9d4edd;
-        }
-        
-        .error-code {
-            font-size: 8rem;
-            font-weight: bold;
-            color: #9d4edd;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 0 10px rgba(157, 78, 221, 0.7);
-        }
-        
-        .error-message {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-        
-        .icon {
-            font-size: 5rem;
-            margin-bottom: 1.5rem;
-            color: #9d4edd;
-        }
-        
-        .footer {
+
+        .background-lines {
             position: absolute;
-            bottom: 20px;
-            font-size: 1rem;
-            color: #9d4edd;
-            font-weight: bold;
-            letter-spacing: 1px;
+            top: 0;
+            left: 0;
+            width: 110%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+            object-fit: cover;
+            user-select: none;
+            pointer-events: none;
         }
-        
-        @media (max-width: 576px) {
-            .error-code {
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+           margin-bottom: 40px;
+           width: 100%;
+        }
+
+        .hero-logo {
+             width: 100%;
+             max-width: 250px;
+             margin-top: 20px;
+        }
+
+        .hero-logo img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            color: #fff;
+        }
+
+        /* Nueva animación de deslizamiento */
+        .slide-in {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .slide-in span {
+            display: block;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideIn 1s ease-out forwards;
+        }
+
+        .slide-in span:last-child {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn .icon {
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn .icon svg {
+             width: 18px;
+             height: 14px;
+             fill: currentColor;
+        }
+
+        .arrow-down {
+            margin-left: 8px;
+        }
+
+        /* Estilos comunes para secciones */
+        section {
+             padding: 100px 40px;
+             min-height: auto;
+             opacity: 0;
+             transform: translateY(30px);
+             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+             background-color: #000;
+             position: relative;
+             z-index: 1;
+        }
+
+        section.hero {
+             opacity: 1;
+             transform: translateY(0);
+        }
+
+        section.visible {
+             opacity: 1;
+             transform: translateY(0);
+        }
+
+        .section-titulo {
+             font-size: 3rem;
+             font-weight: bold;
+             margin-bottom: 50px;
+             text-align: left;
+             width: 100%;
+             max-width: 1400px;
+             margin-left: auto;
+             margin-right: auto;
+             color: #fff;
+        }
+
+        /* Sección de Servicios */
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .servicio {
+            background-color: #222;
+            border-radius: 10px;
+            padding: 30px 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .servicio:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .servicio-titulo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .servicio-separador {
+            width: 100%;
+            height: 1px;
+            background-color: #444;
+            margin-bottom: 20px;
+        }
+
+        .servicio-lista {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+            flex-grow: 1;
+            color: #ccc;
+        }
+
+        .servicio-lista li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .servicio-lista li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: #888;
+            font-weight: bold;
+        }
+
+        .servicio-boton {
+            display: block;
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-top: auto;
+        }
+
+        .servicio-boton:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Sección Sobre Nosotros */
+        .nosotros {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nosotros .section-titulo {
+            text-align: center;
+        }
+
+        .nosotros-contenido {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: rgba(30, 30, 30, 0.7);
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+        }
+
+        .nosotros-logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #eee;
+        }
+
+        .nosotros-texto {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            text-align: justify;
+            color: #ddd;
+        }
+
+        /* Sección Páginas */
+        .paginas .section-titulo {
+            color: #fff;
+        }
+
+        .paginas-slider-container {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-bottom: 20px;
+        }
+
+        .paginas-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            gap: 25px;
+            padding-bottom: 20px;
+        }
+
+        .paginas-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .pagina-card {
+            flex: 0 0 90%;
+            background-color: #222;
+            border-radius: 10px;
+            overflow: hidden;
+            scroll-snap-align: center;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .pagina-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .pagina-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pagina-titulo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .pagina-subtitulo {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #bbb;
+        }
+
+        .pagina-texto {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            flex-grow: 1;
+            color: #ccc;
+        }
+
+        .pagina-boton {
+            display: inline-block;
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            padding: 10px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            align-self: flex-start;
+            margin-top: auto;
+        }
+
+        .pagina-boton:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .pagina-footer {
+            padding: 12px 25px;
+            font-size: 0.8rem;
+            color: #888;
+            border-top: 1px solid #333;
+            margin-top: 20px;
+        }
+
+        /* Indicador de scroll */
+        .paginas-scroll-indicator {
+            position: relative;
+            height: 4px;
+            background-color: #333;
+            margin: 25px auto 0;
+            border-radius: 4px;
+            overflow: hidden;
+            max-width: 300px;
+            width: 80%;
+        }
+
+        .paginas-scroll-thumb {
+            position: absolute;
+            height: 100%;
+            background-color: #fff;
+            border-radius: 4px;
+            left: 0;
+            width: 0;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #1c1c1c;
+            padding: 50px 40px 30px;
+            text-align: center;
+            border-top: 1px solid #333;
+            position: relative;
+            z-index: 5;
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 30px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-nav {
+            margin-bottom: 40px;
+        }
+
+        .footer-nav .btn {
+            background-color: #333;
+            color: #ccc;
+            border: none;
+            margin: 0 10px 10px;
+            padding: 10px 25px;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            width: auto;
+            max-width: none;
+            display: inline-block;
+        }
+
+        .footer-nav .btn:hover {
+            background-color: #444;
+            color: #fff;
+        }
+
+        .footer-legal {
+            font-size: 0.75rem;
+            color: #777;
+            margin-top: 30px;
+        }
+
+        /* --- Responsive --- */
+        @media (min-width: 768px) {
+            h1 {
                 font-size: 5rem;
             }
-            
-            .error-message {
-                font-size: 1.2rem;
+            .hero {
+                text-align: left;
             }
-            
-            .container {
-                padding: 2rem;
-                margin: 0 15px;
+            .hero-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
             }
+            .hero-text {
+                flex: 1;
+                margin-bottom: 0;
+                padding-right: 40px;
+                text-align: left;
+            }
+            .slide-in {
+                text-align: left;
+            }
+            .slide-in span {
+                margin: 5px 0;
+                max-width: 100%;
+            }
+            .hero-logo {
+                flex: 0 0 300px;
+                max-width: 300px;
+                margin-top: 0;
+            }
+            .hero-logo img {
+                max-width: 300px;
+            }
+            .cta-buttons {
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 20px;
+                width: auto;
+            }
+            .btn {
+                width: auto;
+            }
+            .section-titulo {
+                font-size: 4rem;
+            }
+            .pagina-card {
+                flex-basis: calc(50% - 12.5px);
+                min-width: 350px;
+            }
+            .paginas-slider {
+                scroll-snap-type: none;
+            }
+            .footer-nav {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+            .footer-nav .btn {
+                margin-bottom: 0;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .section-titulo {
+                font-size: 4.5rem;
+            }
+            .pagina-card {
+                flex-basis: calc(33.33% - 17px);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            header, section:not(.hero), footer {
+                padding-left: 60px;
+                padding-right: 60px;
+            }
+            h1 {
+                font-size: 5.5rem;
+            }
+            .section-titulo {
+                font-size: 5rem;
+            }
+            .pagina-card {
+                flex-basis: calc(33.33% - 17px);
+            }
+            .hero-logo {
+                flex-basis: 350px;
+            }
+            .hero-logo img {
+                max-width: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 15px 20px;
+            }
+            .logo {
+                font-size: 1rem;
+            }
+            nav ul li {
+                margin: 0 8px;
+            }
+            nav ul li a {
+                font-size: 0.9rem;
+            }
+            .hero {
+                padding: 60px 20px 30px;
+            }
+            h1 {
+                font-size: 2.8rem;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+            section:not(.hero) {
+                padding: 80px 20px;
+            }
+            .section-titulo {
+                font-size: 2.5rem;
+                margin-bottom: 30px;
+            }
+            .servicio, .pagina-content {
+                padding: 20px;
+            }
+            .servicio-titulo { font-size: 1.3rem; }
+            .servicio-lista li { font-size: 0.9rem; }
+            .servicio-boton { padding: 10px 15px; font-size: 0.8rem; }
+            .nosotros-contenido { padding: 25px; }
+            .nosotros-logo { font-size: 2rem; }
+            .nosotros-texto { font-size: 0.95rem; }
+            .pagina-titulo { font-size: 1.5rem; }
+            .pagina-subtitulo { font-size: 1rem; }
+            .pagina-texto { font-size: 0.9rem; }
+            .pagina-boton { padding: 8px 15px; font-size: 0.8rem; }
+            .pagina-footer { padding: 10px 20px; font-size: 0.75rem;}
+            footer { padding: 40px 20px 20px; }
+            .footer-logo { font-size: 2rem; }
+            .footer-nav .btn { padding: 8px 20px; font-size: 0.8rem; margin: 0 5px 8px; }
+            .footer-legal { font-size: 0.7rem; margin-top: 20px;}
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="icon">⚠️</div>
-        <div class="error-code">404</div>
-        <div class="error-message">Sorry, our webpage is not available at this moment</div>
-    </div>
-    <div class="footer">Vintara.xyz</div>
+    <header>
+        <a href="#home" class="logo">vintara.xyz</a>
+        <nav>
+            <ul>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Sobre nosotros</a></li>
+                <li><a href="#paginas">Páginas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <img src="lineas.png" alt="Fondo con líneas abstractas" class="background-lines">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>
+                    <div class="slide-in">
+                        <span>Diseño sin</span>
+                        <span>límites.</span>
+                    </div>
+                </h1>
+                <div class="cta-buttons">
+                    <a href="#servicios" class="btn btn-secondary">
+                        Descubre más
+                        <span class="arrow-down">↓</span>
+                    </a>
+                    <a href="https://discord.gg/h5ZK4wQJMG" target="_blank" class="btn btn-primary">
+                        <span class="icon">
+                            <svg viewBox="0 0 20 15" fill="currentColor">
+                                <path d="M16.9308 1.24342C15.6561 0.667894 14.2892 0.242574 12.8599 0C12.6629 0.345256 12.4379 0.812106 12.2787 1.18373C10.7467 0.958229 9.23014 0.958229 7.72178 1.18373C7.56256 0.812106 7.33201 0.345256 7.13397 0C5.70313 0.242574 4.33481 0.670221 3.06012 1.24689C0.441545 5.35968 -0.270186 9.37592 0.0850442 13.3346C1.76086 14.5814 3.38459 15.331 4.98046 15.8301C5.37558 15.2775 5.72583 14.6944 6.02377 14.0809C5.45797 13.8588 4.91452 13.589 4.40298 13.2749C4.54008 13.1753 4.67233 13.0711 4.79948 12.9646C8.0016 14.4643 11.4804 14.4643 14.6394 12.9646C14.7675 13.0711 14.8998 13.1753 15.0359 13.2749C14.5233 13.589 13.9789 13.8588 13.4131 14.0809C13.711 14.6944 14.0603 15.2775 14.4564 15.8301C16.0532 15.331 17.6769 14.5814 19.3527 13.3346C19.7747 8.79483 18.6469 4.81539 16.9308 1.24342ZM6.4985 10.892C5.53731 10.892 4.75383 10.0195 4.75383 8.968C4.75383 7.91649 5.52487 7.04404 6.4985 7.04404C7.47213 7.04404 8.25561 7.91649 8.24317 8.968C8.24317 10.0195 7.47213 10.892 6.4985 10.892ZM13.5015 10.892C12.5403 10.892 11.7568 10.0195 11.7568 8.968C11.7568 7.91649 12.5278 7.04404 13.5015 7.04404C14.4751 7.04404 15.2586 7.91649 15.2462 8.968C15.2462 10.0195 14.4751 10.892 13.5015 10.892Z"/>
+                            </svg>
+                        </span>
+                        Únete al Discord
+                    </a>
+                </div>
+            </div>
+            <div class="hero-logo">
+                <img src="LOGO.png" alt="Logo Vintara">
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="servicios">
+        <h2 class="section-titulo servicios-titulo">SERVICIOS</h2>
+        <div class="servicios-grid">
+            <div class="servicio">
+                <h3 class="servicio-titulo">DISEÑO GRÁFICO</h3>
+                <div class="servicio-separador"></div>
+                <ul class="servicio-lista">
+                    <li>Servicios de renderizado 3D</li>
+                    <li>Diseño de logotipos profesionales</li>
+                    <li>Diseño de banners publicitarios</li>
+                    <li>Identidad visual completa</li>
+                </ul>
+                <a href="diseñografico.html" class="servicio-boton">SABER MÁS</a>
+            </div>
+
+            <div class="servicio">
+                <h3 class="servicio-titulo">DISEÑO WEB</h3>
+                <div class="servicio-separador"></div>
+                <ul class="servicio-lista">
+                    <li>Diseño de portafolios y páginas web</li>
+                    <li>Soporte con dominios personalizados</li>
+                    <li>Vinculación de redes sociales</li>
+                    <li>Optimización SEO básica</li>
+                </ul>
+                <a href="diseñoweb.html" class="servicio-boton">SABER MÁS</a>
+            </div>
+
+            <div class="servicio">
+                <h3 class="servicio-titulo">EVENTOS ONLINE</h3>
+                <div class="servicio-separador"></div>
+                <ul class="servicio-lista">
+                    <li>Estructuración de eventos personalizados</li>
+                    <li>Gestión de público y personal</li>
+                    <li>Propaganda del evento en redes</li>
+                    <li>Plataformas interactivas</li>
+                </ul>
+                <a href="eventosonline.html" class="servicio-boton">SABER MÁS</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="nosotros">
+        <h2 class="section-titulo nosotros-titulo">SOBRE NOSOTROS</h2>
+        <div class="nosotros-contenido">
+            <div class="nosotros-logo">VINTARA.XYZ</div>
+            <p class="nosotros-texto">
+                En Vintara, no solo construimos una empresa, sino una comunidad apasionada y visionaria. Nuestro equipo se distingue por su compromiso inquebrantable con la excelencia, trabajando constantemente para mejorar la calidad de nuestros servicios y consolidar una reputación basada en confianza, innovación y profesionalismo. Creemos en la mejora continua y en la capacidad de transformar desafíos en oportunidades, siempre con la mirada puesta en el crecimiento y la satisfacción de nuestros clientes.
+            </p>
+        </div>
+    </section>
+
+    <section id="paginas" class="paginas">
+        <h2 class="section-titulo paginas-titulo">PÁGINAS DESTACADAS</h2>
+        <div class="paginas-slider-container">
+            <div class="paginas-slider" id="paginasSlider">
+                <div class="pagina-card">
+                    <div class="pagina-content">
+                        <h3 class="pagina-titulo">GAMES.VINTARA.XYZ</h3>
+                        <h4 class="pagina-subtitulo">¿Aburrido en clases?</h4>
+                        <p class="pagina-texto">
+                            Visita games.vintara.xyz para acceder a nuestra librería de juegos sencillos y livianos para correr en cualquier momento y en cualquier lugar. Agregamos nuevos juegos y actualizamos los existentes todo el tiempo.
+                            <br><br>
+                            Contamos con nuestro programa "genios gamers" donde los usuarios pueden dar ideas de juegos y nosotros las hacemos realidad.
+                        </p>
+                        <a href="https://games.vintara.xyz" target="_blank" class="pagina-boton">IR A LA PAGINA</a>
+                    </div>
+                    <div class="pagina-footer">
+                        Terminos y servicios mencionados en la pagina
+                    </div>
+                </div>
+
+                <div class="pagina-card">
+                    <div class="pagina-content">
+                        <h3 class="pagina-titulo">BLOG.VINTARA.XYZ</h3>
+                        <h4 class="pagina-subtitulo">Noticias y Tutoriales</h4>
+                        <p class="pagina-texto">
+                            Mantente al día con las últimas tendencias en diseño, desarrollo web y marketing digital. Publicamos artículos, guías y consejos prácticos para potenciar tus proyectos.
+                            <br><br>
+                            Descubre análisis de herramientas, estudios de caso y entrevistas con expertos del sector. ¡Contenido nuevo cada semana!
+                        </p>
+                        <a href="#" class="pagina-boton">IR A LA PAGINA</a>
+                    </div>
+                    <div class="pagina-footer">
+                        Terminos y servicios mencionados en la pagina
+                    </div>
+                </div>
+
+                <div class="pagina-card">
+                    <div class="pagina-content">
+                        <h3 class="pagina-titulo">SHOP.VINTARA.XYZ</h3>
+                        <h4 class="pagina-subtitulo">Recursos Premium</h4>
+                        <p class="pagina-texto">
+                            Encuentra plantillas web, kits UI, mockups y otros recursos digitales de alta calidad para acelerar tu flujo de trabajo. Diseñados por profesionales para profesionales.
+                            <br><br>
+                            Ofrecemos licencias flexibles y soporte para todos nuestros productos. Visita la tienda y lleva tus diseños al siguiente nivel.
+                        </p>
+                        <a href="#" class="pagina-boton">IR A LA PAGINA</a>
+                    </div>
+                    <div class="pagina-footer">
+                        Terminos y servicios mencionados en la pagina
+                    </div>
+                </div>
+
+                <div class="pagina-card">
+                    <div class="pagina-content">
+                        <h3 class="pagina-titulo">COMUNIDAD DISCORD</h3>
+                        <h4 class="pagina-subtitulo">Conecta y Colabora</h4>
+                        <p class="pagina-texto">
+                            Únete a nuestra vibrante comunidad en Discord. Un espacio para diseñadores, desarrolladores y creativos donde compartir ideas, pedir feedback, encontrar colaboradores y participar en eventos exclusivos.
+                            <br><br>
+                            Canales temáticos, recursos compartidos y acceso directo a nuestro equipo. ¡Te esperamos!
+                        </p>
+                        <a href="https://discord.gg/h5ZK4wQJMG" target="_blank" class="pagina-boton">UNIRSE AL DISCORD</a>
+                    </div>
+                    <div class="pagina-footer">
+                        Terminos y servicios mencionados en la pagina
+                    </div>
+                </div> 
+            </div>
+            <div class="paginas-scroll-indicator">
+                <div class="paginas-scroll-thumb" id="scrollThumb"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <a href="#home" class="footer-logo">VINTARA.XYZ</a>
+        <nav class="footer-nav">
+            <a href="https://discord.gg/h5ZK4wQJMG" target="_blank" class="btn">DISCORD</a>
+            <a href="#" class="btn">REDES</a>
+            <a href="#" class="btn">TERMINOS</a>
+        </nav>
+        <p class="footer-legal">
+            La marca "Vintara" y sucesores aún no es una marca registrada legalmente por ningún registro de la USPTO. © <span id="currentYear"></span> Vintara.xyz. Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (!header) return;
+            try {
+                if (window.scrollY > 50) {
+                    header.style.paddingTop = '10px';
+                    header.style.paddingBottom = '10px';
+                    header.style.backgroundColor = 'rgba(10, 10, 10, 0.9)';
+                    header.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.6)';
+                } else {
+                    header.style.paddingTop = '20px';
+                    header.style.paddingBottom = '20px';
+                    header.style.backgroundColor = 'rgba(30, 30, 30, 0.8)';
+                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.5)';
+                }
+            } catch (error) {
+                console.error("Error al modificar estilos del header:", error);
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const hrefAttribute = this.getAttribute('href');
+                if (hrefAttribute && hrefAttribute !== '#') {
+                    try {
+                        const targetElement = document.querySelector(hrefAttribute);
+                        if (targetElement) {
+                            e.preventDefault();
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    } catch (error) {
+                        console.error(`Error al buscar el elemento para ${hrefAttribute}:`, error);
+                    }
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.1
+                };
+
+                const observerCallback = (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                };
+
+                const observer = new IntersectionObserver(observerCallback, observerOptions);
+                const sectionsToObserve = document.querySelectorAll('section:not(.hero)');
+
+                if (sectionsToObserve.length > 0) {
+                    sectionsToObserve.forEach(section => {
+                        observer.observe(section);
+                    });
+                } else {
+                    console.warn("No se encontraron secciones para observar (excepto .hero).");
+                }
+            } catch (error) {
+                console.error("Error inicializando IntersectionObserver:", error);
+            }
+
+            try {
+                const slider = document.getElementById('paginasSlider');
+                const scrollThumb = document.getElementById('scrollThumb');
+
+                function updateScrollThumb() {
+                    if (!slider || !scrollThumb) return;
+
+                    const scrollableWidth = slider.scrollWidth - slider.clientWidth;
+                    const visibleRatio = slider.clientWidth / slider.scrollWidth;
+
+                    if (scrollableWidth <= 0 || visibleRatio >= 1) {
+                        scrollThumb.style.width = '0';
+                        return;
+                    }
+
+                    const thumbWidthPercentage = visibleRatio * 100;
+                    const scrollPercentage = (slider.scrollLeft / scrollableWidth);
+                    const thumbPositionPercentage = scrollPercentage * (100 - thumbWidthPercentage);
+
+                    scrollThumb.style.width = `${thumbWidthPercentage}%`;
+                    scrollThumb.style.transform = `translateX(${scrollPercentage * (slider.clientWidth - scrollThumb.offsetWidth)}px)`;
+                }
+
+                if (slider) {
+                    let isScrolling;
+                    slider.addEventListener('scroll', () => {
+                        window.clearTimeout(isScrolling);
+                        isScrolling = setTimeout(() => {
+                            window.requestAnimationFrame(updateScrollThumb);
+                        }, 66);
+                    }, { passive: true });
+
+                    updateScrollThumb();
+                    window.addEventListener('resize', updateScrollThumb);
+                } else {
+                    console.warn("Elemento #paginasSlider no encontrado.");
+                }
+            } catch (error) {
+                console.error("Error configurando el slider de páginas:", error);
+            }
+
+            try {
+                const yearSpan = document.getElementById('currentYear');
+                if (yearSpan) {
+                    yearSpan.textContent = new Date().getFullYear();
+                }
+            } catch(error) {
+                console.error("Error al actualizar el año en el footer:", error);
+            }
+        });
+    </script>
 </body>
 </html>
