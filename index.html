@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* Header con posición fija */
+        /* Header */
         header {
             position: fixed;
             top: 0;
@@ -41,631 +41,206 @@
             border-radius: 0 0 25px 25px;
             transition: padding 0.3s ease, background-color 0.3s ease;
         }
-
-        .logo {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #fff;
-            text-decoration: none;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #ccc;
-        }
+        .logo { font-size: 1.2rem; font-weight: bold; color: #fff; text-decoration: none; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin: 0 15px; }
+        nav ul li a { color: #fff; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; }
+        nav ul li a:hover { color: #ccc; }
 
         /* Hero section */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 80px 40px 40px;
-            overflow: hidden;
-            text-align: center;
-            z-index: 1;
-        }
+        .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 80px 40px 40px; overflow: hidden; text-align: center; z-index: 1; }
+        .background-lines { position: absolute; top: 0; left: 0; width: 110%; height: 100%; z-index: -1; opacity: 0.4; object-fit: cover; user-select: none; pointer-events: none; }
+        .hero-content { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+        .hero-text { margin-bottom: 40px; width: 100%; }
+        .hero-logo { width: 100%; max-width: 250px; margin-top: 20px; }
+        .hero-logo img { display: block; max-width: 100%; height: auto; filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2)); }
+        h1 { font-size: 4rem; font-weight: bold; margin-bottom: 30px; letter-spacing: -1px; line-height: 1.1; color: #fff; }
 
-        .background-lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 110%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.4;
-            object-fit: cover;
-            user-select: none;
-            pointer-events: none;
-        }
+        /* Animación de deslizamiento para H1 */
+        .slide-in { display: inline-block; width: 100%; text-align: center; }
+        .slide-in span { display: block; opacity: 0; transform: translateX(-50px); animation: slideIn 1s ease-out forwards; }
+        .slide-in span:last-child { animation-delay: 0.3s; }
+        @keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
 
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-text {
-           margin-bottom: 40px;
-           width: 100%;
-        }
-
-        .hero-logo {
-             width: 100%;
-             max-width: 250px;
-             margin-top: 20px;
-        }
-
-        .hero-logo img {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
-        }
-
-        h1 {
-            font-size: 4rem;
-            font-weight: bold;
-            margin-bottom: 30px;
-            letter-spacing: -1px;
-            line-height: 1.1;
-            color: #fff;
-        }
-
-        /* Nueva animación de deslizamiento */
-        .slide-in {
-            display: inline-block;
-            width: 100%;
-            text-align: center;
-        }
-
-        .slide-in span {
-            display: block;
-            opacity: 0;
-            transform: translateX(-50px);
-            animation: slideIn 1s ease-out forwards;
-        }
-
-        .slide-in span:last-child {
-            animation-delay: 0.3s;
-        }
-
-        @keyframes slideIn {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .cta-buttons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 30px;
-            gap: 15px;
-            width: 100%;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 25px;
-            border: 2px solid #fff;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            width: 100%;
-            max-width: 300px;
-            color: #fff;
-        }
-
-        .btn-primary {
-            background-color: #fff;
-            color: #000;
-        }
-
-        .btn-primary:hover {
-            background-color: transparent;
-            color: #fff;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: #fff;
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .btn .icon {
-            margin-right: 8px;
-            display: flex;
-            align-items: center;
-        }
-
-        .btn .icon svg {
-             width: 18px;
-             height: 14px;
-             fill: currentColor;
-        }
-
-        .arrow-down {
-            margin-left: 8px;
-        }
+        /* Botones CTA */
+        .cta-buttons { display: flex; flex-direction: column; align-items: center; margin-top: 30px; gap: 15px; width: 100%; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 25px; border: 2px solid #fff; border-radius: 5px; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease; cursor: pointer; width: 100%; max-width: 300px; color: #fff; }
+        .btn-primary { background-color: #fff; color: #000; }
+        .btn-primary:hover { background-color: transparent; color: #fff; }
+        .btn-secondary { background-color: transparent; color: #fff; }
+        .btn-secondary:hover { background-color: rgba(255, 255, 255, 0.1); }
+        .btn .icon { margin-right: 8px; display: flex; align-items: center; }
+        .btn .icon svg { width: 18px; height: 14px; fill: currentColor; }
+        .arrow-down { margin-left: 8px; }
 
         /* Estilos comunes para secciones */
-        section {
-             padding: 100px 40px;
-             min-height: auto;
-             opacity: 0;
-             transform: translateY(30px);
-             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-             background-color: #000;
-             position: relative;
-             z-index: 1;
-        }
-
-        section.hero {
-             opacity: 1;
-             transform: translateY(0);
-        }
-
-        section.visible {
-             opacity: 1;
-             transform: translateY(0);
-        }
-
-        .section-titulo {
-             font-size: 3rem;
-             font-weight: bold;
-             margin-bottom: 50px;
-             text-align: left;
-             width: 100%;
-             max-width: 1400px;
-             margin-left: auto;
-             margin-right: auto;
-             color: #fff;
-        }
+        section { padding: 100px 40px; min-height: auto; opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; background-color: #000; position: relative; z-index: 1; }
+        section.hero { opacity: 1; transform: translateY(0); }
+        section.visible { opacity: 1; transform: translateY(0); }
+        .section-titulo { font-size: 3rem; font-weight: bold; margin-bottom: 50px; text-align: left; width: 100%; max-width: 1400px; margin-left: auto; margin-right: auto; color: #fff; }
 
         /* Sección de Servicios */
-        .servicios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
-            margin: 0 auto;
+        .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1400px; margin: 0 auto; }
+        .servicio { background-color: #222; border-radius: 10px; padding: 30px 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; height: 100%; display: flex; flex-direction: column; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
+        .servicio:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); }
+        .servicio-titulo { font-size: 1.5rem; font-weight: bold; margin-bottom: 15px; color: #fff; }
+        .servicio-separador { width: 100%; height: 1px; background-color: #444; margin-bottom: 20px; }
+        .servicio-lista { list-style-type: none; padding-left: 0; margin-bottom: 30px; flex-grow: 1; color: #ccc; }
+        .servicio-lista li { margin-bottom: 10px; font-size: 0.95rem; position: relative; padding-left: 20px; }
+        .servicio-lista li::before { content: '\2713'; position: absolute; left: 0; color: #888; font-weight: bold; }
+        .servicio-boton { display: block; background-color: #fff; color: #000; text-align: center; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: background-color 0.3s ease, color 0.3s ease; margin-top: auto; }
+        .servicio-boton:hover { background-color: #333; color: #fff; }
+        /* Nuevo servicio centrado: si es el último y único en su 'fila conceptual' */
+        .servicio.centered-last-item:last-child:nth-child(odd), /* Para 2 columnas */
+        .servicio.centered-last-item:last-child:nth-child(4n+1) /* Si es el primero de una fila en 4 cols (ej.) */
+        {
+             /* En un grid auto-fit, si este es el único item en la última fila,
+                podemos intentar centrarlo si su celda no ocupa todo el ancho.
+                Una forma es que el item en sí no se estire. */
+            /* justify-self: center; */ /* Centra el item en su celda de grid */
+             /* O, si el item debe ocupar la celda y centrar su contenido */
+            /* text-align: center; */
         }
 
-        .servicio {
-            background-color: #222;
-            border-radius: 10px;
-            padding: 30px 25px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .servicio:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-        }
-
-        .servicio-titulo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .servicio-separador {
-            width: 100%;
-            height: 1px;
-            background-color: #444;
-            margin-bottom: 20px;
-        }
-
-        .servicio-lista {
-            list-style-type: none;
-            padding-left: 0;
-            margin-bottom: 30px;
-            flex-grow: 1;
-            color: #ccc;
-        }
-
-        .servicio-lista li {
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .servicio-lista li::before {
-            content: '\2713';
-            position: absolute;
-            left: 0;
-            color: #888;
-            font-weight: bold;
-        }
-
-        .servicio-boton {
-            display: block;
-            background-color: #fff;
-            color: #000;
-            text-align: center;
-            padding: 12px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            margin-top: auto;
-        }
-
-        .servicio-boton:hover {
-            background-color: #333;
-            color: #fff;
-        }
 
         /* Sección Sobre Nosotros */
-        .nosotros {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .nosotros .section-titulo {
-            text-align: center;
-        }
-
-        .nosotros-contenido {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: rgba(30, 30, 30, 0.7);
-            border-radius: 15px;
-            padding: 35px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(12px);
-        }
-
-        .nosotros-logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 25px;
-            color: #eee;
-        }
-
-        .nosotros-texto {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            text-align: justify;
-            color: #ddd;
-        }
+        .nosotros { display: flex; flex-direction: column; align-items: center; }
+        .nosotros .section-titulo { text-align: center; }
+        .nosotros-contenido { max-width: 900px; margin: 0 auto; background-color: rgba(30, 30, 30, 0.7); border-radius: 15px; padding: 35px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); backdrop-filter: blur(12px); }
+        .nosotros-logo { font-size: 2.5rem; font-weight: bold; text-align: center; margin-bottom: 25px; color: #eee; }
+        .nosotros-texto { font-size: 1.05rem; line-height: 1.7; text-align: justify; color: #ddd; }
 
         /* Sección Páginas */
-        .paginas .section-titulo {
-            color: #fff;
+        .paginas .section-titulo { color: #fff; }
+        .paginas-slider-container { 
+            position: relative; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 0; /* Eliminamos padding horizontal aquí, se maneja en media query */
         }
+        .paginas-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; gap: 25px; padding-bottom: 20px; padding-left: 15px; padding-right: 15px; /* Padding para que las tarjetas no se peguen a los bordes en móvil */}
+        .paginas-slider::-webkit-scrollbar { display: none; }
+        .pagina-card { flex: 0 0 90%; background-color: #222; border-radius: 10px; overflow: hidden; scroll-snap-align: center; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
+        .pagina-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); }
+        .pagina-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .pagina-titulo { font-size: 1.8rem; font-weight: bold; margin-bottom: 10px; color: #fff; }
+        .pagina-subtitulo { font-size: 1.1rem; margin-bottom: 15px; color: #bbb; }
+        .pagina-texto { font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; flex-grow: 1; color: #ccc; }
+        .pagina-boton { display: inline-block; background-color: #fff; color: #000; text-align: center; padding: 10px 18px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 0.85rem; transition: background-color 0.3s ease, color 0.3s ease; align-self: flex-start; margin-top: auto; }
+        .pagina-boton:hover { background-color: #333; color: #fff; }
+        .pagina-footer { padding: 12px 25px; font-size: 0.8rem; color: #888; border-top: 1px solid #333; margin-top: 20px; }
 
-        .paginas-slider-container {
-            position: relative;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-bottom: 20px;
+        /* Flechas de scroll para Paginas Destacadas */
+        .slider-arrow {
+            display: none; /* Ocultas por defecto y en móvil */
+            align-items: center; /* Para centrar el glifo de flecha */
+            justify-content: center; /* Para centrar el glifo de flecha */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente blanco */
+            color: white;
+            border: none;
+            width: 44px; /* Ancho fijo */
+            height: 44px; /* Alto fijo */
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+            font-size: 1.5rem; /* Tamaño del glifo */
+            line-height: 1;
+            transition: background-color 0.3s ease, opacity 0.3s ease;
         }
+        .slider-arrow:hover { background-color: rgba(255, 255, 255, 0.3); }
+        .slider-arrow.prev { left: 10px; }
+        .slider-arrow.next { right: 10px; }
+        .slider-arrow:disabled { opacity: 0.3; cursor: default; background-color: rgba(255, 255, 255, 0.05); }
 
-        .paginas-slider {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            gap: 25px;
-            padding-bottom: 20px;
-        }
-
-        .paginas-slider::-webkit-scrollbar {
-            display: none;
-        }
-
-        .pagina-card {
-            flex: 0 0 90%;
-            background-color: #222;
-            border-radius: 10px;
-            overflow: hidden;
-            scroll-snap-align: center;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .pagina-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-        }
-
-        .pagina-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .pagina-titulo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        .pagina-subtitulo {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: #bbb;
-        }
-
-        .pagina-texto {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            flex-grow: 1;
-            color: #ccc;
-        }
-
-        .pagina-boton {
-            display: inline-block;
-            background-color: #fff;
-            color: #000;
-            text-align: center;
-            padding: 10px 18px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.85rem;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            align-self: flex-start;
-            margin-top: auto;
-        }
-
-        .pagina-boton:hover {
-            background-color: #333;
-            color: #fff;
-        }
-
-        .pagina-footer {
-            padding: 12px 25px;
-            font-size: 0.8rem;
-            color: #888;
-            border-top: 1px solid #333;
-            margin-top: 20px;
-        }
 
         /* Indicador de scroll */
-        .paginas-scroll-indicator {
-            position: relative;
-            height: 4px;
-            background-color: #333;
-            margin: 25px auto 0;
-            border-radius: 4px;
-            overflow: hidden;
-            max-width: 300px;
-            width: 80%;
-        }
+        .paginas-scroll-indicator { position: relative; height: 4px; background-color: #333; margin: 25px auto 0; border-radius: 4px; overflow: hidden; max-width: 300px; width: 80%; }
+        .paginas-scroll-thumb { position: absolute; height: 100%; background-color: #fff; border-radius: 4px; left: 0; width: 0; transform: translateX(0); }
 
-        .paginas-scroll-thumb {
-            position: absolute;
-            height: 100%;
-            background-color: #fff;
-            border-radius: 4px;
-            left: 0;
-            width: 0;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: #1c1c1c;
-            padding: 50px 40px 30px;
-            text-align: center;
-            border-top: 1px solid #333;
-            position: relative;
-            z-index: 5;
-        }
-
-        .footer-logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #fff;
-            margin-bottom: 30px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .footer-nav {
-            margin-bottom: 40px;
-        }
-
-        .footer-nav .btn {
-            background-color: #333;
-            color: #ccc;
-            border: none;
-            margin: 0 10px 10px;
-            padding: 10px 25px;
-            font-size: 0.9rem;
-            border-radius: 20px;
-            width: auto;
-            max-width: none;
-            display: inline-block;
-        }
-
-        .footer-nav .btn:hover {
-            background-color: #444;
-            color: #fff;
-        }
-
-        .footer-legal {
-            font-size: 0.75rem;
-            color: #777;
-            margin-top: 30px;
-        }
+        /* Footer */
+        footer { background-color: #1c1c1c; padding: 50px 40px 30px; text-align: center; border-top: 1px solid #333; position: relative; z-index: 5; }
+        .footer-logo { font-size: 2.5rem; font-weight: bold; color: #fff; margin-bottom: 30px; text-decoration: none; display: block; }
+        .footer-nav { margin-bottom: 40px; }
+        .footer-nav .btn { background-color: #333; color: #ccc; border: none; margin: 0 10px 10px; padding: 10px 25px; font-size: 0.9rem; border-radius: 20px; width: auto; max-width: none; display: inline-block; }
+        .footer-nav .btn:hover { background-color: #444; color: #fff; }
+        .footer-legal { font-size: 0.75rem; color: #777; margin-top: 30px; }
 
         /* --- Responsive --- */
-        @media (min-width: 768px) {
-            h1 {
-                font-size: 5rem;
-            }
-            .hero {
-                text-align: left;
-            }
-            .hero-content {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .hero-text {
-                flex: 1;
-                margin-bottom: 0;
-                padding-right: 40px;
-                text-align: left;
-            }
-            .slide-in {
-                text-align: left;
-            }
-            .slide-in span {
-                margin: 5px 0;
-                max-width: 100%;
-            }
-            .hero-logo {
-                flex: 0 0 300px;
-                max-width: 300px;
-                margin-top: 0;
-            }
-            .hero-logo img {
-                max-width: 300px;
-            }
-            .cta-buttons {
-                flex-direction: row;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 20px;
-                width: auto;
-            }
-            .btn {
-                width: auto;
-            }
-            .section-titulo {
-                font-size: 4rem;
-            }
-            .pagina-card {
-                flex-basis: calc(50% - 12.5px);
-                min-width: 350px;
-            }
-            .paginas-slider {
-                scroll-snap-type: none;
-            }
-            .footer-nav {
-                display: flex;
-                justify-content: center;
-                gap: 20px;
-            }
-            .footer-nav .btn {
-                margin-bottom: 0;
+        @media (min-width: 768px) { /* Tabletas y Desktops Pequeños */
+            h1 { font-size: 5rem; }
+            .hero { text-align: left; }
+            .hero-content { flex-direction: row; justify-content: space-between; align-items: center; }
+            .hero-text { flex: 1; margin-bottom: 0; padding-right: 40px; text-align: left; }
+            .slide-in { text-align: left; }
+            .slide-in span { margin: 5px 0; max-width: 100%; }
+            .hero-logo { flex: 0 0 300px; max-width: 300px; margin-top: 0; }
+            .hero-logo img { max-width: 300px; }
+            .cta-buttons { flex-direction: row; justify-content: flex-start; align-items: center; gap: 20px; width: auto; }
+            .btn { width: auto; }
+            .section-titulo { font-size: 4rem; }
+            
+            .pagina-card { flex-basis: calc(50% - 12.5px); min-width: 350px; }
+            .paginas-slider { scroll-snap-type: initial; /* Desactivar snap en desktop donde hay flechas */ padding-left: 0; padding-right: 0; /* Quitar padding interno si hay flechas */ }
+            .paginas-slider-container { padding: 0 60px; /* Espacio para las flechas en el contenedor */ }
+            .slider-arrow { display: flex; } /* Mostrar flechas en desktop */
+
+            .footer-nav { display: flex; justify-content: center; gap: 20px; }
+            .footer-nav .btn { margin-bottom: 0; }
+
+            /* Centrado del 4to servicio (ejemplo) */
+            .servicios-grid.has-four-items .servicio:nth-child(4):last-child {
+                 /* Asumiendo que el grid naturalmente pone 3 items por fila */
+                 /* y este es el único en la segunda fila. */
+                 grid-column: 2 / 3; /* Lo coloca en la segunda columna de una grid de 3 */
+                 /* Si el grid-template-columns es repeat(auto-fit, ...), este enfoque es menos predecible.
+                    Una alternativa es hacer que el 4to item ocupe todo el ancho de la fila
+                    y centrar su contenido interno si es necesario. */
+                 /* grid-column: 1 / -1; */
+                 /* justify-self: center; */
             }
         }
 
-        @media (min-width: 992px) {
-            .section-titulo {
-                font-size: 4.5rem;
-            }
-            .pagina-card {
-                flex-basis: calc(33.33% - 17px);
-            }
-        }
-
-        @media (min-width: 1200px) {
-            header, section:not(.hero), footer {
-                padding-left: 60px;
-                padding-right: 60px;
-            }
-            h1 {
-                font-size: 5.5rem;
-            }
-            .section-titulo {
-                font-size: 5rem;
-            }
-            .pagina-card {
-                flex-basis: calc(33.33% - 17px);
-            }
-            .hero-logo {
-                flex-basis: 350px;
-            }
-            .hero-logo img {
-                max-width: 350px;
+        @media (min-width: 992px) { /* Desktops Medianos */
+            .section-titulo { font-size: 4.5rem; }
+            .pagina-card { flex-basis: calc(33.33% - 17px); }
+            .servicios-grid.has-four-items {
+                /* Si queremos 3 columnas fijas para el escenario de centrado del 4to item */
+                /* grid-template-columns: repeat(3, 1fr); */
             }
         }
 
-        @media (max-width: 480px) {
-            header {
-                padding: 15px 20px;
-            }
-            .logo {
-                font-size: 1rem;
-            }
-            nav ul li {
-                margin: 0 8px;
-            }
-            nav ul li a {
-                font-size: 0.9rem;
-            }
-            .hero {
-                padding: 60px 20px 30px;
-            }
-            h1 {
-                font-size: 2.8rem;
-            }
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.85rem;
-            }
-            section:not(.hero) {
-                padding: 80px 20px;
-            }
-            .section-titulo {
-                font-size: 2.5rem;
-                margin-bottom: 30px;
-            }
-            .servicio, .pagina-content {
-                padding: 20px;
-            }
+        @media (min-width: 1200px) { /* Desktops Grandes */
+            header, section:not(.hero), footer { padding-left: 60px; padding-right: 60px; }
+            h1 { font-size: 5.5rem; }
+            .section-titulo { font-size: 5rem; }
+            .hero-logo { flex-basis: 350px; }
+            .hero-logo img { max-width: 350px; }
+            .paginas-slider-container { padding: 0 70px; /* Más espacio para flechas */ }
+            .slider-arrow.prev { left: 20px; }
+            .slider-arrow.next { right: 20px; }
+
+        }
+
+        @media (max-width: 767px) { /* Específicamente para ocultar flechas en móvil */
+            .slider-arrow { display: none !important; }
+            .paginas-slider-container { padding: 0; /* Sin padding extra si no hay flechas */ }
+            .pagina-card { flex: 0 0 85%; min-width: 0; }
+        }
+
+        @media (max-width: 480px) { /* Móviles Pequeños */
+            header { padding: 15px 20px; }
+            .logo { font-size: 1rem; }
+            nav ul li { margin: 0 8px; }
+            nav ul li a { font-size: 0.9rem; }
+            .hero { padding: 60px 20px 30px; }
+            h1 { font-size: 2.8rem; }
+            .btn { padding: 10px 20px; font-size: 0.85rem; }
+            section:not(.hero) { padding: 80px 20px; }
+            .section-titulo { font-size: 2.5rem; margin-bottom: 30px; }
+            .servicio, .pagina-content { padding: 20px; }
             .servicio-titulo { font-size: 1.3rem; }
             .servicio-lista li { font-size: 0.9rem; }
             .servicio-boton { padding: 10px 15px; font-size: 0.8rem; }
@@ -681,7 +256,9 @@
             .footer-logo { font-size: 2rem; }
             .footer-nav .btn { padding: 8px 20px; font-size: 0.8rem; margin: 0 5px 8px; }
             .footer-legal { font-size: 0.7rem; margin-top: 20px;}
+            .pagina-card { flex: 0 0 90%; }
         }
+
     </style>
 </head>
 <body>
@@ -708,16 +285,9 @@
                     </div>
                 </h1>
                 <div class="cta-buttons">
-                    <a href="#servicios" class="btn btn-secondary">
-                        Descubre más
-                        <span class="arrow-down">↓</span>
-                    </a>
+                    <a href="#servicios" class="btn btn-secondary">Descubre más <span class="arrow-down">↓</span></a>
                     <a href="https://discord.gg/h5ZK4wQJMG" target="_blank" class="btn btn-primary">
-                        <span class="icon">
-                            <svg viewBox="0 0 20 15" fill="currentColor">
-                                <path d="M16.9308 1.24342C15.6561 0.667894 14.2892 0.242574 12.8599 0C12.6629 0.345256 12.4379 0.812106 12.2787 1.18373C10.7467 0.958229 9.23014 0.958229 7.72178 1.18373C7.56256 0.812106 7.33201 0.345256 7.13397 0C5.70313 0.242574 4.33481 0.670221 3.06012 1.24689C0.441545 5.35968 -0.270186 9.37592 0.0850442 13.3346C1.76086 14.5814 3.38459 15.331 4.98046 15.8301C5.37558 15.2775 5.72583 14.6944 6.02377 14.0809C5.45797 13.8588 4.91452 13.589 4.40298 13.2749C4.54008 13.1753 4.67233 13.0711 4.79948 12.9646C8.0016 14.4643 11.4804 14.4643 14.6394 12.9646C14.7675 13.0711 14.8998 13.1753 15.0359 13.2749C14.5233 13.589 13.9789 13.8588 13.4131 14.0809C13.711 14.6944 14.0603 15.2775 14.4564 15.8301C16.0532 15.331 17.6769 14.5814 19.3527 13.3346C19.7747 8.79483 18.6469 4.81539 16.9308 1.24342ZM6.4985 10.892C5.53731 10.892 4.75383 10.0195 4.75383 8.968C4.75383 7.91649 5.52487 7.04404 6.4985 7.04404C7.47213 7.04404 8.25561 7.91649 8.24317 8.968C8.24317 10.0195 7.47213 10.892 6.4985 10.892ZM13.5015 10.892C12.5403 10.892 11.7568 10.0195 11.7568 8.968C11.7568 7.91649 12.5278 7.04404 13.5015 7.04404C14.4751 7.04404 15.2586 7.91649 15.2462 8.968C15.2462 10.0195 14.4751 10.892 13.5015 10.892Z"/>
-                            </svg>
-                        </span>
+                        <span class="icon"><svg viewBox="0 0 20 15" fill="currentColor"><path d="M16.9308 1.24342C15.6561 0.667894 14.2892 0.242574 12.8599 0C12.6629 0.345256 12.4379 0.812106 12.2787 1.18373C10.7467 0.958229 9.23014 0.958229 7.72178 1.18373C7.56256 0.812106 7.33201 0.345256 7.13397 0C5.70313 0.242574 4.33481 0.670221 3.06012 1.24689C0.441545 5.35968 -0.270186 9.37592 0.0850442 13.3346C1.76086 14.5814 3.38459 15.331 4.98046 15.8301C5.37558 15.2775 5.72583 14.6944 6.02377 14.0809C5.45797 13.8588 4.91452 13.589 4.40298 13.2749C4.54008 13.1753 4.67233 13.0711 4.79948 12.9646C8.0016 14.4643 11.4804 14.4643 14.6394 12.9646C14.7675 13.0711 14.8998 13.1753 15.0359 13.2749C14.5233 13.589 13.9789 13.8588 13.4131 14.0809C13.711 14.6944 14.0603 15.2775 14.4564 15.8301C16.0532 15.331 17.6769 14.5814 19.3527 13.3346C19.7747 8.79483 18.6469 4.81539 16.9308 1.24342ZM6.4985 10.892C5.53731 10.892 4.75383 10.0195 4.75383 8.968C4.75383 7.91649 5.52487 7.04404 6.4985 7.04404C7.47213 7.04404 8.25561 7.91649 8.24317 8.968C8.24317 10.0195 7.47213 10.892 6.4985 10.892ZM13.5015 10.892C12.5403 10.892 11.7568 10.0195 11.7568 8.968C11.7568 7.91649 12.5278 7.04404 13.5015 7.04404C14.4751 7.04404 15.2586 7.91649 15.2462 8.968C15.2462 10.0195 14.4751 10.892 13.5015 10.892Z"/></svg></span>
                         Únete al Discord
                     </a>
                 </div>
@@ -730,8 +300,7 @@
 
     <section id="servicios" class="servicios">
         <h2 class="section-titulo servicios-titulo">SERVICIOS</h2>
-        <div class="servicios-grid">
-            <div class="servicio">
+        <div class="servicios-grid" id="serviciosGrid"> <div class="servicio">
                 <h3 class="servicio-titulo">DISEÑO GRÁFICO</h3>
                 <div class="servicio-separador"></div>
                 <ul class="servicio-lista">
@@ -742,7 +311,6 @@
                 </ul>
                 <a href="/diseñografico" class="servicio-boton">SABER MÁS</a>
             </div>
-
             <div class="servicio">
                 <h3 class="servicio-titulo">DISEÑO WEB</h3>
                 <div class="servicio-separador"></div>
@@ -754,7 +322,6 @@
                 </ul>
                 <a href="/diseñoweb" class="servicio-boton">SABER MÁS</a>
             </div>
-
             <div class="servicio">
                 <h3 class="servicio-titulo">EVENTOS ONLINE</h3>
                 <div class="servicio-separador"></div>
@@ -766,87 +333,71 @@
                 </ul>
                 <a href="/eventosonline" class="servicio-boton">SABER MÁS</a>
             </div>
+            <div class="servicio centered-last-item">
+                <h3 class="servicio-titulo">EDICION DE CONTENIDO</h3>
+                <div class="servicio-separador"></div>
+                <ul class="servicio-lista">
+                    <li>Edicion para redes sociales</li>
+                    <li>Edicion para publicidad</li>
+                    <li>Edicion cinematografica</li>
+                    <li>Edición sin límites</li>
+                </ul>
+                <a href="/edicion" class="servicio-boton">SABER MÁS</a>
+            </div>
         </div>
     </section>
 
     <section id="nosotros" class="nosotros">
-        <h2 class="section-titulo nosotros-titulo">SOBRE NOSOTROS</h2>
-        <div class="nosotros-contenido">
-            <div class="nosotros-logo">VINTARA.XYZ</div>
-            <p class="nosotros-texto">
-                En Vintara, no solo construimos una empresa, sino una comunidad apasionada y visionaria. Nuestro equipo se distingue por su compromiso inquebrantable con la excelencia, trabajando constantemente para mejorar la calidad de nuestros servicios y consolidar una reputación basada en confianza, innovación y profesionalismo. Creemos en la mejora continua y en la capacidad de transformar desafíos en oportunidades, siempre con la mirada puesta en el crecimiento y la satisfacción de nuestros clientes.
-            </p>
-        </div>
+         <h2 class="section-titulo nosotros-titulo">SOBRE NOSOTROS</h2>
+         <div class="nosotros-contenido">
+             <div class="nosotros-logo">VINTARA.XYZ</div>
+             <p class="nosotros-texto">En Vintara, no solo construimos una empresa, sino una comunidad apasionada y visionaria. Nuestro equipo se distingue por su compromiso inquebrantable con la excelencia, trabajando constantemente para mejorar la calidad de nuestros servicios y consolidar una reputación basada en confianza, innovación y profesionalismo. Creemos en la mejora continua y en la capacidad de transformar desafíos en oportunidades, siempre con la mirada puesta en el crecimiento y la satisfacción de nuestros clientes.</p>
+         </div>
     </section>
 
     <section id="paginas" class="paginas">
         <h2 class="section-titulo paginas-titulo">PÁGINAS DESTACADAS</h2>
         <div class="paginas-slider-container">
+            <button class="slider-arrow prev" id="sliderArrowPrev" aria-label="Anterior">&#10094;</button>
             <div class="paginas-slider" id="paginasSlider">
                 <div class="pagina-card">
                     <div class="pagina-content">
                         <h3 class="pagina-titulo">GAMES.VINTARA.XYZ</h3>
                         <h4 class="pagina-subtitulo">¿Aburrido en clases?</h4>
-                        <p class="pagina-texto">
-                            Visita games.vintara.xyz para acceder a nuestra librería de juegos sencillos y livianos para correr en cualquier momento y en cualquier lugar. Agregamos nuevos juegos y actualizamos los existentes todo el tiempo.
-                            <br><br>
-                            Contamos con nuestro programa "genios gamers" donde los usuarios pueden dar ideas de juegos y nosotros las hacemos realidad.
-                        </p>
+                        <p class="pagina-texto">Visita games.vintara.xyz para acceder a nuestra librería de juegos sencillos y livianos para correr en cualquier momento y en cualquier lugar. Agregamos nuevos juegos y actualizamos los existentes todo el tiempo. <br><br> Contamos con nuestro programa "genios gamers" donde los usuarios pueden dar ideas de juegos y nosotros las hacemos realidad.</p>
                         <a href="https://games.vintara.xyz" target="_blank" class="pagina-boton">IR A LA PAGINA</a>
                     </div>
-                    <div class="pagina-footer">
-                        Terminos y servicios mencionados en la pagina
-                    </div>
+                    <div class="pagina-footer">Terminos y servicios mencionados en la pagina</div>
                 </div>
-
                 <div class="pagina-card">
                     <div class="pagina-content">
                         <h3 class="pagina-titulo">BLOG.VINTARA.XYZ</h3>
                         <h4 class="pagina-subtitulo">Noticias y Tutoriales</h4>
-                        <p class="pagina-texto">
-                            Mantente al día con las últimas tendencias en diseño, desarrollo web y marketing digital. Publicamos artículos, guías y consejos prácticos para potenciar tus proyectos.
-                            <br><br>
-                            Descubre análisis de herramientas, estudios de caso y entrevistas con expertos del sector. ¡Contenido nuevo cada semana!
-                        </p>
+                        <p class="pagina-texto">Mantente al día con las últimas tendencias en diseño, desarrollo web y marketing digital. Publicamos artículos, guías y consejos prácticos para potenciar tus proyectos. <br><br> Descubre análisis de herramientas, estudios de caso y entrevistas con expertos del sector. ¡Contenido nuevo cada semana!</p>
                         <a href="#" class="pagina-boton">IR A LA PAGINA</a>
                     </div>
-                    <div class="pagina-footer">
-                        Terminos y servicios mencionados en la pagina
-                    </div>
+                    <div class="pagina-footer">Terminos y servicios mencionados en la pagina</div>
                 </div>
-
                 <div class="pagina-card">
                     <div class="pagina-content">
                         <h3 class="pagina-titulo">SHOP.VINTARA.XYZ</h3>
                         <h4 class="pagina-subtitulo">Recursos Premium</h4>
-                        <p class="pagina-texto">
-                            Encuentra plantillas web, kits UI, mockups y otros recursos digitales de alta calidad para acelerar tu flujo de trabajo. Diseñados por profesionales para profesionales.
-                            <br><br>
-                            Ofrecemos licencias flexibles y soporte para todos nuestros productos. Visita la tienda y lleva tus diseños al siguiente nivel.
-                        </p>
+                        <p class="pagina-texto">Encuentra plantillas web, kits UI, mockups y otros recursos digitales de alta calidad para acelerar tu flujo de trabajo. Diseñados por profesionales para profesionales. <br><br> Ofrecemos licencias flexibles y soporte para todos nuestros productos. Visita la tienda y lleva tus diseños al siguiente nivel.</p>
                         <a href="#" class="pagina-boton">IR A LA PAGINA</a>
                     </div>
-                    <div class="pagina-footer">
-                        Terminos y servicios mencionados en la pagina
-                    </div>
+                    <div class="pagina-footer">Terminos y servicios mencionados en la pagina</div>
                 </div>
-
                 <div class="pagina-card">
                     <div class="pagina-content">
                         <h3 class="pagina-titulo">COMUNIDAD DISCORD</h3>
                         <h4 class="pagina-subtitulo">Conecta y Colabora</h4>
-                        <p class="pagina-texto">
-                            Únete a nuestra vibrante comunidad en Discord. Un espacio para diseñadores, desarrolladores y creativos donde compartir ideas, pedir feedback, encontrar colaboradores y participar en eventos exclusivos.
-                            <br><br>
-                            Canales temáticos, recursos compartidos y acceso directo a nuestro equipo. ¡Te esperamos!
-                        </p>
+                        <p class="pagina-texto">Únete a nuestra vibrante comunidad en Discord. Un espacio para diseñadores, desarrolladores y creativos donde compartir ideas, pedir feedback, encontrar colaboradores y participar en eventos exclusivos. <br><br> Canales temáticos, recursos compartidos y acceso directo a nuestro equipo. ¡Te esperamos!</p>
                         <a href="https://discord.gg/h5ZK4wQJMG" target="_blank" class="pagina-boton">UNIRSE AL DISCORD</a>
                     </div>
-                    <div class="pagina-footer">
-                        Terminos y servicios mencionados en la pagina
-                    </div>
-                </div> 
+                    <div class="pagina-footer">Terminos y servicios mencionados en la pagina</div>
+                </div>
             </div>
+            <button class="slider-arrow next" id="sliderArrowNext" aria-label="Siguiente">&#10095;</button>
             <div class="paginas-scroll-indicator">
                 <div class="paginas-scroll-thumb" id="scrollThumb"></div>
             </div>
@@ -860,87 +411,118 @@
             <a href="#" class="btn">REDES</a>
             <a href="#" class="btn">TERMINOS</a>
         </nav>
-        <p class="footer-legal">
-            La marca "Vintara" y sucesores aún no es una marca registrada legalmente por ningún registro de la USPTO. © <span id="currentYear"></span> Vintara.xyz. Todos los derechos reservados.
-        </p>
+        <p class="footer-legal">La marca "Vintara" y sucesores aún no es una marca registrada legalmente por ningún registro de la USPTO. © <span id="currentYear"></span> Vintara.xyz. Todos los derechos reservados.</p>
     </footer>
 
     <script>
+        // --- Script Header Scroll ---
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (!header) return;
             try {
                 if (window.scrollY > 50) {
-                    header.style.paddingTop = '10px';
-                    header.style.paddingBottom = '10px';
+                    header.style.paddingTop = '10px'; header.style.paddingBottom = '10px';
                     header.style.backgroundColor = 'rgba(10, 10, 10, 0.9)';
                     header.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.6)';
                 } else {
-                    header.style.paddingTop = '20px';
-                    header.style.paddingBottom = '20px';
+                    header.style.paddingTop = '20px'; header.style.paddingBottom = '20px';
                     header.style.backgroundColor = 'rgba(30, 30, 30, 0.8)';
                     header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.5)';
                 }
-            } catch (error) {
-                console.error("Error al modificar estilos del header:", error);
-            }
+            } catch (e) { console.error("Error header scroll:", e); }
         });
 
+        // --- Script Navegación Suave ---
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const hrefAttribute = this.getAttribute('href');
-                if (hrefAttribute && hrefAttribute !== '#') {
+                if (hrefAttribute && hrefAttribute !== '#') { // Ignorar href="#"
                     try {
                         const targetElement = document.querySelector(hrefAttribute);
-                        if (targetElement) {
-                            e.preventDefault();
-                            targetElement.scrollIntoView({
-                                behavior: 'smooth'
-                            });
-                        }
-                    } catch (error) {
-                        console.error(`Error al buscar el elemento para ${hrefAttribute}:`, error);
-                    }
+                        if (targetElement) { e.preventDefault(); targetElement.scrollIntoView({ behavior: 'smooth' }); }
+                    } catch (e) { console.error("Error smooth scroll:", e); }
                 }
             });
         });
 
+        // --- Scripts DOMContentLoaded ---
         document.addEventListener('DOMContentLoaded', function() {
+            // --- Intersection Observer ---
             try {
-                const observerOptions = {
-                    root: null,
-                    rootMargin: '0px',
-                    threshold: 0.1
-                };
-
-                const observerCallback = (entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                        }
-                    });
-                };
-
+                const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+                const observerCallback = (entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); /* observer.unobserve(entry.target); */ } }); };
                 const observer = new IntersectionObserver(observerCallback, observerOptions);
                 const sectionsToObserve = document.querySelectorAll('section:not(.hero)');
+                if (sectionsToObserve.length > 0) { sectionsToObserve.forEach(section => observer.observe(section)); }
+                else { console.warn("No sections for IntersectionObserver (excluding .hero)."); }
+            } catch (e) { console.error("Error IntersectionObserver:", e); }
 
-                if (sectionsToObserve.length > 0) {
-                    sectionsToObserve.forEach(section => {
-                        observer.observe(section);
-                    });
-                } else {
-                    console.warn("No se encontraron secciones para observar (excepto .hero).");
-                }
-            } catch (error) {
-                console.error("Error inicializando IntersectionObserver:", error);
-            }
-
+            // --- Páginas Slider con Flechas ---
             try {
                 const slider = document.getElementById('paginasSlider');
-                const scrollThumb = document.getElementById('scrollThumb');
+                const scrollThumb = document.getElementById('scrollThumb'); // Para el indicador visual
+                const prevArrow = document.getElementById('sliderArrowPrev');
+                const nextArrow = document.getElementById('sliderArrowNext');
+                const scrollIndicator = document.querySelector('.paginas-scroll-indicator');
 
-                function updateScrollThumb() {
-                    if (!slider || !scrollThumb) return;
+
+                if (slider && prevArrow && nextArrow) {
+                    const scrollAmount = () => {
+                        const firstCard = slider.querySelector('.pagina-card');
+                        if (firstCard) {
+                            const cardStyle = getComputedStyle(firstCard);
+                            const cardMargin = parseFloat(cardStyle.marginLeft) + parseFloat(cardStyle.marginRight);
+                            const sliderGap = parseFloat(getComputedStyle(slider).gap);
+                             // Priorizar el ancho de la tarjeta + gap. Si no hay gap explícito, usar margen.
+                            return firstCard.offsetWidth + (isNaN(sliderGap) ? cardMargin : sliderGap) ;
+                        }
+                        return 300; // Fallback scroll amount
+                    };
+
+                    const updateArrowState = () => {
+                        if(window.innerWidth < 768) { // Ocultar en móvil
+                            prevArrow.style.display = 'none';
+                            nextArrow.style.display = 'none';
+                            if(scrollIndicator) scrollIndicator.style.display = 'block'; // Mostrar indicador en móvil
+                            return;
+                        }
+                        // Mostrar en desktop
+                        prevArrow.style.display = 'flex';
+                        nextArrow.style.display = 'flex';
+                        if(scrollIndicator) scrollIndicator.style.display = 'none'; // Ocultar indicador en desktop
+
+                        // Tolerancia pequeña para evitar problemas con decimales
+                        const tolerance = 5;
+                        prevArrow.disabled = slider.scrollLeft <= tolerance;
+                        nextArrow.disabled = slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - tolerance);
+
+                        prevArrow.style.opacity = prevArrow.disabled ? '0.3' : '1';
+                        nextArrow.style.opacity = nextArrow.disabled ? '0.3' : '1';
+                    };
+                    
+                    prevArrow.addEventListener('click', () => {
+                        slider.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+                    });
+
+                    nextArrow.addEventListener('click', () => {
+                        slider.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+                    });
+                    
+                    slider.addEventListener('scroll', updateArrowState, { passive: true });
+                    window.addEventListener('resize', updateArrowState);
+                    updateArrowState(); // Llamada inicial
+                } else {
+                    if (!slider) console.warn("#paginasSlider not found.");
+                    if (!prevArrow) console.warn("#sliderArrowPrev not found.");
+                    if (!nextArrow) console.warn("#sliderArrowNext not found.");
+                }
+                
+                // --- Scroll Thumb Indicator (mantener para móvil si se desea) ---
+                function updateScrollThumbIndicator() {
+                    if (!slider || !scrollThumb || !scrollIndicator || window.innerWidth >= 768) {
+                        if(scrollThumb) scrollThumb.style.width = '0'; // Ocultar si no es necesario
+                        return;
+                    }
 
                     const scrollableWidth = slider.scrollWidth - slider.clientWidth;
                     const visibleRatio = slider.clientWidth / slider.scrollWidth;
@@ -949,40 +531,34 @@
                         scrollThumb.style.width = '0';
                         return;
                     }
-
                     const thumbWidthPercentage = visibleRatio * 100;
                     const scrollPercentage = (slider.scrollLeft / scrollableWidth);
-                    const thumbPositionPercentage = scrollPercentage * (100 - thumbWidthPercentage);
-
+                    
                     scrollThumb.style.width = `${thumbWidthPercentage}%`;
-                    scrollThumb.style.transform = `translateX(${scrollPercentage * (slider.clientWidth - scrollThumb.offsetWidth)}px)`;
+                    const indicatorWidth = scrollIndicator.clientWidth;
+                    const thumbPosition = scrollPercentage * (indicatorWidth * (1 - visibleRatio));
+                    scrollThumb.style.transform = `translateX(${thumbPosition}px)`;
                 }
 
-                if (slider) {
-                    let isScrolling;
-                    slider.addEventListener('scroll', () => {
-                        window.clearTimeout(isScrolling);
-                        isScrolling = setTimeout(() => {
-                            window.requestAnimationFrame(updateScrollThumb);
-                        }, 66);
-                    }, { passive: true });
+                 if (slider && scrollThumb && scrollIndicator) {
+                    slider.addEventListener('scroll', updateScrollThumbIndicator, { passive: true });
+                    window.addEventListener('resize', updateScrollThumbIndicator);
+                    updateScrollThumbIndicator(); // Llamada inicial
+                 }
 
-                    updateScrollThumb();
-                    window.addEventListener('resize', updateScrollThumb);
-                } else {
-                    console.warn("Elemento #paginasSlider no encontrado.");
-                }
-            } catch (error) {
-                console.error("Error configurando el slider de páginas:", error);
-            }
 
+            } catch (e) { console.error("Error en slider de páginas o flechas:", e); }
+
+            // --- Año Actual en Footer ---
             try {
                 const yearSpan = document.getElementById('currentYear');
-                if (yearSpan) {
-                    yearSpan.textContent = new Date().getFullYear();
-                }
-            } catch(error) {
-                console.error("Error al actualizar el año en el footer:", error);
+                if (yearSpan) { yearSpan.textContent = new Date().getFullYear(); }
+            } catch (e) { console.error("Error footer year:", e); }
+
+            // Verificar si hay 4 servicios y añadir clase para centrado (ejemplo)
+            const serviciosGrid = document.getElementById('serviciosGrid');
+            if (serviciosGrid && serviciosGrid.children.length === 4) {
+                serviciosGrid.classList.add('has-four-items');
             }
         });
     </script>
