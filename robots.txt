@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /
+
+Allow: /diseñografico
+Allow: /diseñoweb
+Allow: /eventosonline
+Allow: /edicion
+Allow: /
+
+Sitemap: https://www.vintara.xyz/sitemap.xml
