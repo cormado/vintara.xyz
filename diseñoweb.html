@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diseño Web</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Diseño Grafico - Vintara.xyz</title>
     <style>
         * {
             margin: 0;
@@ -13,455 +12,642 @@
         }
 
         body {
-            min-height: 100vh;
-            background-image: url('fondo.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .title {
-            font-weight: 700;
-            font-size: 2.5rem;
-            color: white;
-            text-align: center;
-            margin-bottom: 3rem;
-            text-shadow: 
-                0 0 10px #ffffff,
-                0 0 20px #ffffff,
-                0 0 30px #ffffff,
-                0 0 40px #ffffff;
-            animation: neonGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes neonGlow {
-            from {
-                text-shadow: 
-                    0 0 10px #ffffff,
-                    0 0 20px #ffffff,
-                    0 0 30px #ffffff,
-                    0 0 40px #ffffff;
-            }
-            to {
-                text-shadow: 
-                    0 0 5px #ffffff,
-                    0 0 10px #ffffff,
-                    0 0 15px #ffffff,
-                    0 0 20px #ffffff;
-            }
+            font-family: 'Arial', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            line-height: 1.6;
         }
 
         .container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .glass-frame {
-            width: 60vw;
-            height: 35vw;
-            max-width: 800px;
-            max-height: 450px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 20px;
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2),
-                0 0 20px rgba(255, 255, 255, 0.6);
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #cccccc;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #000000;
+            padding: 150px 0 100px;
+            text-align: center;
             position: relative;
             overflow: hidden;
-            animation: glassGlow 3s ease-in-out infinite alternate;
         }
 
-        @keyframes glassGlow {
-            from {
-                box-shadow: 
-                    0 8px 32px rgba(0, 0, 0, 0.3),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-                    0 0 20px rgba(255, 255, 255, 0.6);
-            }
-            to {
-                box-shadow: 
-                    0 8px 32px rgba(0, 0, 0, 0.3),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-                    0 0 30px rgba(170, 170, 170, 0.5);
-            }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23222" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+            opacity: 0.3;
         }
 
-        .video-player {
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 100px 0;
+        }
+
+        .content-section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .content-text h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        .content-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .features-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        /* Carousel */
+        .carousel-container {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+            background: #111111;
+        }
+
+        .carousel-slide {
+            display: none;
+            width: 100%;
+            height: 350px;
+            background: #111111;
+            border: 2px solid #333333;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .carousel-slide.active {
+            display: block;
+        }
+
+        .carousel-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 18px;
-            transition: opacity 0.5s ease-in-out;
         }
 
-        .final-content {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            color: white;
-        }
-
-        .final-content.active {
-            opacity: 1;
-        }
-
-        .final-title {
-            font-weight: 700;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            text-shadow: 
-                0 0 10px #ffffff,
-                0 0 20px #ffffff;
-        }
-
-        .services-list {
-            list-style: none;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .services-list li {
-            font-size: 1.1rem;
-            margin-bottom: 0.8rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .services-list li::before {
-            content: "●";
-            color: #ffffff;
+        .carousel-nav {
             position: absolute;
-            left: 0;
-            font-weight: bold;
-            text-shadow: 0 0 10px #ffffff;
-        }
-
-        .saber-mas-btn {
-            background: rgba(0, 0, 0, 0.8);
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.7);
             color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50px;
-            padding: 1rem 2.5rem;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 1.2rem;
-            text-decoration: none;
-            backdrop-filter: blur(10px);
-            box-shadow: 
-                0 4px 16px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2),
-                0 0 10px rgba(255, 255, 255, 0.6);
-            transition: all 0.3s ease;
+            border: none;
+            padding: 15px;
             cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            border-radius: 5px;
         }
 
-        .saber-mas-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3),
-                0 0 20px rgba(255, 255, 255, 0.6);
-            text-shadow: 0 0 10px #ffffff;
+        .carousel-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
-        .arrow {
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+        .carousel-indicators {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .indicator.active {
+            background: #ffffff;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background: #111111;
+            padding: 80px 0;
+            margin: 80px 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .benefit-card {
+            background: #222222;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .benefit-card p {
+            opacity: 0.9;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 80px 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .step-number {
+            display: inline-block;
             width: 60px;
             height: 60px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: #ffffff;
+            color: #000000;
             border-radius: 50%;
+            line-height: 60px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .process-step h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .process-step p {
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #ffffff;
+            color: #000000;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #000000;
+            color: #ffffff;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin: 0 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: #000000;
+            border: 2px solid #000000;
+        }
+
+        .cta-button.secondary:hover {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background: #000000;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .footer-nav {
             display: flex;
             justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 
-                0 4px 16px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2),
-                0 0 10px rgba(255, 255, 255, 0.6);
+            gap: 30px;
+            margin-bottom: 30px;
         }
 
-        .arrow:hover {
-            transform: scale(1.2);
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3),
-                0 0 20px rgba(255, 255, 255, 0.6);
+        .footer-nav .btn {
+            background: #ffffff;
+            color: #000000;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s;
         }
 
-        .arrow::before {
-            content: "";
-            width: 20px;
-            height: 20px;
-            border: 3px solid white;
-            border-left: none;
-            border-bottom: none;
-            transform: rotate(45deg);
-            filter: drop-shadow(0 0 5px #ffffff);
+        .footer-nav .btn:hover {
+            background: #cccccc;
+            transform: translateY(-2px);
         }
 
-        .arrow.left::before {
-            transform: rotate(-135deg);
+        .footer-legal {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .counter {
-            position: absolute;
-            bottom: -4rem;
-            left: 50%;
-            transform: translateX(-50%);
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: white;
-            text-shadow: 
-                0 0 10px #ffffff,
-                0 0 20px #ffffff;
-            animation: neonGlow 2s ease-in-out infinite alternate;
-        }
-
-        .hidden {
-            opacity: 0;
-        }
-
-        /* Media Queries */
-        @media (max-width: 1200px) {
-            .glass-frame {
-                width: 70vw;
-                height: 40vw;
-            }
-            
-            .title {
-                font-size: 2rem;
-                margin-bottom: 2rem;
-            }
-            
-            .arrow {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .counter {
-                font-size: 1.3rem;
-            }
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .container {
+            .content-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-nav {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 15px;
             }
-            
-            .glass-frame {
-                width: 85vw;
-                height: 50vw;
-                max-height: 400px;
-            }
-            
-            .title {
-                font-size: 1.8rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .arrow {
-                width: 45px;
-                height: 45px;
-            }
-            
-            .counter {
-                position: static;
-                transform: none;
-                margin-top: 1rem;
-                font-size: 1.2rem;
-            }
-            
-            .final-content {
-                padding: 1.5rem;
-            }
-            
-            .final-title {
-                font-size: 1.5rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .services-list li {
-                font-size: 1rem;
-                margin-bottom: 0.6rem;
-            }
-            
-            .saber-mas-btn {
-                padding: 0.8rem 2rem;
-                font-size: 1rem;
-            }
-        }
 
-        @media (max-width: 480px) {
-            .glass-frame {
-                width: 90vw;
-                height: 60vw;
-                max-height: 350px;
+            .benefits-grid {
+                grid-template-columns: 1fr;
             }
-            
-            .title {
-                font-size: 1.5rem;
-            }
-            
-            .final-title {
-                font-size: 1.3rem;
-            }
-            
-            .services-list li {
-                font-size: 0.9rem;
-            }
-            
-            .saber-mas-btn {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.9rem;
-            }
-        }
 
-        @media (orientation: landscape) and (max-height: 500px) {
-            .title {
-                font-size: 1.5rem;
-                margin-bottom: 1rem;
-            }
-            
-            .glass-frame {
-                width: 60vw;
-                height: 60vh;
-                max-height: 300px;
-            }
-            
-            .counter {
-                bottom: -2rem;
-                font-size: 1rem;
+            .process-steps {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <h1 class="title">DISEÑO WEB</h1>
-    
-    <div class="container">
-        <div class="arrow left" id="prevArrow"></div>
-        
-        <div class="glass-frame">
-            <video class="video-player" id="videoPlayer" autoplay muted loop>
-                <source src="dw1.mp4" type="video/mp4">
-                Tu navegador no soporta el elemento video.
-            </video>
-            
-            <div class="final-content" id="finalContent">
-                <h2 class="final-title">¿Que Ofrecemos?</h2>
-                <ul class="services-list">
-                    <li>ELEMENTOS INTERACTIVOS</li>
-                    <li>OPTIMIZACIÓN SEO</li>
-                    <li>REDES SOCIALES</li>
-                    <li>CONFIGURACIÓN DE DOMINIO</li>
-                    <li>SOPORTE CONSTANTE</li>
-                    <li>VISTA DE MARCA</li>
-                </ul>
-                <a href="/contacto" class="saber-mas-btn">SABER MÁS</a>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#home" class="logo">vintara.xyz</a>
+                <nav class="nav-links">
+                    <a href="#servicios">Servicios</a>
+                    <a href="#sobre-nosotros">Sobre nosotros</a>
+                    <a href="#paginas">Páginas</a>
+                    <a href="#contacto">Contacto</a>
+                </nav>
             </div>
         </div>
-        
-        <div class="arrow right" id="nextArrow"></div>
-        
-        <div class="counter" id="counter">1/6</div>
-    </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>DISEÑO WEB</h1>
+                <p>¿Quieres hacer un portafolio o landing page para tu empresa?</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-content">
+        <div class="container">
+            <!-- Sección Principal -->
+            <div class="content-section">
+                <h2 class="section-title">CARACTERISTICAS</h2>
+                
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>Nuestras caracteristicas</h3>
+                        <p>¿Que podemos hacer?</p>
+                        <ul class="features-list">
+                            <li>Elementos Interactivos</li>
+                            <li>Vinculacion De Redes</li>
+                            <li>[CARACTERÍSTICA 3]</li>
+                            <li>[CARACTERÍSTICA 4]</li>
+                        </ul>
+                    </div>
+                    <div class="carousel-container">
+                        <div class="carousel" id="main-carousel">
+                            <div class="carousel-slide active">
+                                <img src="example1_dw.gif" alt="Ejemplo 1">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="example2_dw.gif" alt="Ejemplo 2">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="example3_dw.gif" alt="Ejemplo 3">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="example4_dw.gif" alt="Ejemplo 4">
+                            </div>
+                        </div>
+                        <button class="carousel-nav carousel-prev" onclick="changeSlide(-1)">❮</button>
+                        <button class="carousel-nav carousel-next" onclick="changeSlide(1)">❯</button>
+                        <div class="carousel-indicators">
+                            <span class="indicator active" onclick="currentSlide(1)"></span>
+                            <span class="indicator" onclick="currentSlide(2)"></span>
+                            <span class="indicator" onclick="currentSlide(3)"></span>
+                            <span class="indicator" onclick="currentSlide(4)"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Beneficios -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">[TÍTULO DE BENEFICIOS]</h2>
+            <p class="section-description">[DESCRIPCIÓN DE BENEFICIOS]</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h4>[BENEFICIO 1]</h4>
+                    <p>[DESCRIPCIÓN DEL BENEFICIO 1]</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>[BENEFICIO 2]</h4>
+                    <p>[DESCRIPCIÓN DEL BENEFICIO 2]</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>[BENEFICIO 3]</h4>
+                    <p>[DESCRIPCIÓN DEL BENEFICIO 3]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Proceso -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">[TÍTULO DEL PROCESO]</h2>
+            <p class="section-description">[DESCRIPCIÓN DEL PROCESO]</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>[PASO 1]</h4>
+                    <p>[DESCRIPCIÓN DEL PASO 1]</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>[PASO 2]</h4>
+                    <p>[DESCRIPCIÓN DEL PASO 2]</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>[PASO 3]</h4>
+                    <p>[DESCRIPCIÓN DEL PASO 3]</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>[PASO 4]</h4>
+                    <p>[DESCRIPCIÓN DEL PASO 4]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>[TÍTULO DE LLAMADA A LA ACCIÓN]</h2>
+            <p>[DESCRIPCIÓN DE LA LLAMADA A LA ACCIÓN]</p>
+            <a href="#contacto" class="cta-button">COMENZAR PROYECTO</a>
+            <a href="#" class="cta-button secondary">VER PORTAFOLIO</a>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="container">
+            <a href="#home" class="footer-logo">VINTARA.XYZ</a>
+            <nav class="footer-nav">
+                <a href="https://discord.gg/h5ZK4wQJMG" target="_blank" class="btn">DISCORD</a>
+                <a href="#" class="btn">REDES</a>
+                <a href="#" class="btn">TERMINOS</a>
+            </nav>
+            <p class="footer-legal">La marca "Vintara" y sucesores aún no es una marca registrada legalmente por ningún registro de la USPTO. © <span id="currentYear"></span> Vintara.xyz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
     <script>
-        const videoPlayer = document.getElementById('videoPlayer');
-        const finalContent = document.getElementById('finalContent');
-        const counter = document.getElementById('counter');
-        const nextArrow = document.getElementById('nextArrow');
-        const prevArrow = document.getElementById('prevArrow');
-        
-        let currentVideo = 1;
-        const totalVideos = 6;
-        let showingFinal = false;
-        
-        function updateVideo(videoNumber) {
-            if (videoNumber > totalVideos) {
-                showFinalContent();
-                return;
+        // Carousel functionality
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            if (currentSlideIndex >= slides.length) {
+                currentSlideIndex = 0;
+            } else if (currentSlideIndex < 0) {
+                currentSlideIndex = slides.length - 1;
             }
-            
-            videoPlayer.style.opacity = '0';
-            
-            setTimeout(() => {
-                videoPlayer.src = `dw${videoNumber}.mp4`;
-                videoPlayer.load();
-                videoPlayer.play();
-                counter.textContent = `${videoNumber}/6`;
-                videoPlayer.style.opacity = '1';
-            }, 250);
+            showSlide(currentSlideIndex);
         }
-        
-        function showFinalContent() {
-            showingFinal = true;
-            videoPlayer.style.opacity = '0';
-            counter.classList.add('hidden');
-            
-            setTimeout(() => {
-                finalContent.classList.add('active');
-            }, 500);
+
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
         }
-        
-        function hideFinalContent() {
-            showingFinal = false;
-            finalContent.classList.remove('active');
-            counter.classList.remove('hidden');
-            
-            setTimeout(() => {
-                videoPlayer.style.opacity = '1';
-            }, 500);
-        }
-        
-        nextArrow.addEventListener('click', () => {
-            if (showingFinal) return;
-            
-            currentVideo++;
-            updateVideo(currentVideo);
+
+        // Auto-advance carousel
+        setInterval(() => {
+            changeSlide(1);
+        }, 7900);
+
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
-        
-        prevArrow.addEventListener('click', () => {
-            if (showingFinal) {
-                currentVideo = totalVideos;
-                hideFinalContent();
-                updateVideo(currentVideo);
-                return;
-            }
-            
-            if (currentVideo > 1) {
-                currentVideo--;
-                updateVideo(currentVideo);
-            }
-        });
-        
-        // Precargar videos para mejor rendimiento
-        for (let i = 2; i <= totalVideos; i++) {
-            const video = document.createElement('video');
-            video.src = `dw${i}.mp4`;
-            video.preload = 'metadata';
-        }
     </script>
 </body>
 </html>
