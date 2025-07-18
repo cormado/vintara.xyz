@@ -3,136 +3,651 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Página no encontrada - Vintara.xyz</title>
+    <title>Diseño Grafico - Vintara.xyz</title>
     <style>
-        /* Reseteo y estilos generales */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
         }
 
         body {
-            background-color: #000;
-            color: #fff;
-            overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
+            font-family: 'Arial', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            line-height: 1.6;
         }
 
-        /* Fondo con líneas abstractas */
-        .background-lines {
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #cccccc;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #000000;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23222" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 100px 0;
+        }
+
+        .content-section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .content-text h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        .content-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .features-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        /* Carousel */
+        .carousel-container {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+            background: #111111;
+        }
+
+        .carousel-slide {
+            display: none;
+            width: 100%;
+            height: 350px;
+            background: #111111;
+            border: 2px solid #333333;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .carousel-slide.active {
+            display: block;
+        }
+
+        .carousel-slide img {
             width: 100%;
             height: 100%;
-            z-index: -1;
-            opacity: 0.4;
             object-fit: cover;
-            user-select: none;
-            pointer-events: none;
         }
 
-        /* Contenedor principal */
-        .error-content {
-            max-width: 1200px;
-            padding: 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Título 404 */
-        h1 {
-            font-size: 8rem;
-            font-weight: bold;
-            letter-spacing: -2px;
-            line-height: 1;
-            color: #fff;
-            margin-bottom: 20px;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Mensaje */
-        h2 {
-            font-size: 2rem;
-            font-weight: normal;
-            color: #ccc;
-            margin-bottom: 40px;
-            line-height: 1.4;
-        }
-
-        /* Botón de regreso */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 25px;
-            border: 2px solid #fff;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            padding: 15px;
             cursor: pointer;
-            color: #fff;
-            background-color: transparent;
-            max-width: 300px;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            border-radius: 5px;
         }
 
-        .btn:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #fff;
+        .carousel-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+        .carousel-indicators {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .indicator.active {
+            background: #ffffff;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background: #111111;
+            padding: 80px 0;
+            margin: 80px 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .benefit-card {
+            background: #222222;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .benefit-card p {
+            opacity: 0.9;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 80px 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: #ffffff;
+            color: #000000;
+            border-radius: 50%;
+            line-height: 60px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .process-step h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .process-step p {
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #ffffff;
+            color: #000000;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #000000;
+            color: #ffffff;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin: 0 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: #000000;
+            border: 2px solid #000000;
+        }
+
+        .cta-button.secondary:hover {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background: #000000;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-nav .btn {
+            background: #ffffff;
+            color: #000000;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-nav .btn:hover {
+            background: #cccccc;
+            transform: translateY(-2px);
+        }
+
+        .footer-legal {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 6rem;
+            .content-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
 
-            h2 {
-                font-size: 1.5rem;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.85rem;
+            .section-title {
+                font-size: 2rem;
             }
 
-            .error-content {
-                padding: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 4rem;
+            .nav-links {
+                display: none;
             }
 
-            h2 {
-                font-size: 1.2rem;
+            .footer-nav {
+                flex-direction: column;
+                gap: 15px;
             }
 
-            .btn {
-                padding: 8px 15px;
-                font-size: 0.8rem;
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <img src="lineas.png" alt="Fondo con líneas abstractas" class="background-lines">
-    <div class="error-content">
-        <h1>404</h1>
-        <h2>Aún no disponible</h2>
-        <a href="index.html" class="btn">Volver al inicio</a>
-    </div>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#home" class="logo">vintara.xyz</a>
+                <nav class="nav-links">
+                    <a href="#servicios">Servicios</a>
+                    <a href="#sobre-nosotros">Sobre nosotros</a>
+                    <a href="#paginas">Páginas</a>
+                    <a href="#contacto">Contacto</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>DISEÑO WEB</h1>
+                <p>¿Quieres hacer un portafolio o landing page para tu empresa?</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-content">
+        <div class="container">
+            <!-- Sección Principal -->
+            <div class="content-section">
+                <h2 class="section-title">CARACTERISTICAS</h2>
+                
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>Nuestras caracteristicas</h3>
+                        <p>¿Que podemos hacer?</p>
+                        <ul class="features-list">
+                            <li>Elementos Interactivos</li>
+                            <li>Vinculacion De Redes</li>
+                            <li>[CARACTERÍSTICA 3]</li>
+                            <li>[CARACTERÍSTICA 4]</li>
+                        </ul>
+                    </div>
+                    <div class="carousel-container">
+                        <div class="carousel" id="main-carousel">
+                            <div class="carousel-slide active">
+                                <img src="example1_dw.gif" alt="Ejemplo 1">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="example2_dw.gif" alt="Ejemplo 2">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="example3_dw.gif" alt="Ejemplo 3">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="example4_dw.gif" alt="Ejemplo 4">
+                            </div>
+                        </div>
+                        <button class="carousel-nav carousel-prev" onclick="changeSlide(-1)">❮</button>
+                        <button class="carousel-nav carousel-next" onclick="changeSlide(1)">❯</button>
+                        <div class="carousel-indicators">
+                            <span class="indicator active" onclick="currentSlide(1)"></span>
+                            <span class="indicator" onclick="currentSlide(2)"></span>
+                            <span class="indicator" onclick="currentSlide(3)"></span>
+                            <span class="indicator" onclick="currentSlide(4)"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Beneficios -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">[TÍTULO DE BENEFICIOS]</h2>
+            <p class="section-description">[DESCRIPCIÓN DE BENEFICIOS]</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h4>[BENEFICIO 1]</h4>
+                    <p>[DESCRIPCIÓN DEL BENEFICIO 1]</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>[BENEFICIO 2]</h4>
+                    <p>[DESCRIPCIÓN DEL BENEFICIO 2]</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>[BENEFICIO 3]</h4>
+                    <p>[DESCRIPCIÓN DEL BENEFICIO 3]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Proceso -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">[TÍTULO DEL PROCESO]</h2>
+            <p class="section-description">[DESCRIPCIÓN DEL PROCESO]</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>[PASO 1]</h4>
+                    <p>[DESCRIPCIÓN DEL PASO 1]</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>[PASO 2]</h4>
+                    <p>[DESCRIPCIÓN DEL PASO 2]</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>[PASO 3]</h4>
+                    <p>[DESCRIPCIÓN DEL PASO 3]</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>[PASO 4]</h4>
+                    <p>[DESCRIPCIÓN DEL PASO 4]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>[TÍTULO DE LLAMADA A LA ACCIÓN]</h2>
+            <p>[DESCRIPCIÓN DE LA LLAMADA A LA ACCIÓN]</p>
+            <a href="#contacto" class="cta-button">COMENZAR PROYECTO</a>
+            <a href="#" class="cta-button secondary">VER PORTAFOLIO</a>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="container">
+            <a href="#home" class="footer-logo">VINTARA.XYZ</a>
+            <nav class="footer-nav">
+                <a href="https://discord.gg/h5ZK4wQJMG" target="_blank" class="btn">DISCORD</a>
+                <a href="#" class="btn">REDES</a>
+                <a href="#" class="btn">TERMINOS</a>
+            </nav>
+            <p class="footer-legal">La marca "Vintara" y sucesores aún no es una marca registrada legalmente por ningún registro de la USPTO. © <span id="currentYear"></span> Vintara.xyz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Carousel functionality
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            if (currentSlideIndex >= slides.length) {
+                currentSlideIndex = 0;
+            } else if (currentSlideIndex < 0) {
+                currentSlideIndex = slides.length - 1;
+            }
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto-advance carousel
+        setInterval(() => {
+            changeSlide(1);
+        }, 7900);
+
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
