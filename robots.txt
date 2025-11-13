@@ -5,6 +5,6 @@ Allow: /diseñografico
 Allow: /diseñoweb
 Allow: /eventosonline
 Allow: /edicion
-Allow: /
+Allow: /terminos
 
 Sitemap: https://www.vintara.xyz/sitemap.xml

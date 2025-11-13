@@ -449,18 +449,61 @@
                 grid-template-columns: 1fr;
             }
         }
+            .pricing-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #1a1a1a;
+        color: #fff;
+        margin-top: 40px;
+    }
+
+    .pricing-table th,
+    .pricing-table td {
+        border: 1px solid #444;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .pricing-table th {
+        background-color: #292929;
+        font-size: 1.2rem;
+        color: #ffffff;
+    }
+
+    .pricing-table td:first-child {
+        text-align: left;
+        font-weight: bold;
+        background-color: #292929;
+        color: #ffffff;
+    }
+
+    .check {
+        font-size: 1.5rem;
+        color: #00ff88;
+    }
+
+    .cross {
+        font-size: 1.5rem;
+        color: #ff4444;
+    }
+
+    .plan-price {
+        font-weight: bold;
+        font-size: 1rem;
+        color: #ffffff;
+        margin-top: 5px;
+    }
+
     </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="#home" class="logo">vintara.xyz</a>
+                <a href="/" class="logo">vintara.xyz</a>
                 <nav class="nav-links">
-                    <a href="#servicios">Servicios</a>
-                    <a href="#sobre-nosotros">Sobre nosotros</a>
-                    <a href="#paginas">Páginas</a>
-                    <a href="#contacto">Contacto</a>
+                <button class="cta-button2" onclick="Tawk_API.maximize()" style="border: 2px solid #ffffff; padding: 10px 20px; border-radius: 25px; transition: all 0.3s; cursor: pointer;">Contactar</button>
                 </nav>
             </div>
         </div>
@@ -488,8 +531,8 @@
                         <ul class="features-list">
                             <li>Elementos Interactivos</li>
                             <li>Vinculacion De Redes</li>
-                            <li>[CARACTERÍSTICA 3]</li>
-                            <li>[CARACTERÍSTICA 4]</li>
+                            <li>Optimizacion SEO</li>
+                            <li>Otras Mas</li>
                         </ul>
                     </div>
                     <div class="carousel-container">
@@ -503,9 +546,6 @@
                             <div class="carousel-slide">
                                 <img src="example3_dw.gif" alt="Ejemplo 3">
                             </div>
-                            <div class="carousel-slide">
-                                <img src="example4_dw.gif" alt="Ejemplo 4">
-                            </div>
                         </div>
                         <button class="carousel-nav carousel-prev" onclick="changeSlide(-1)">❮</button>
                         <button class="carousel-nav carousel-next" onclick="changeSlide(1)">❯</button>
@@ -513,7 +553,6 @@
                             <span class="indicator active" onclick="currentSlide(1)"></span>
                             <span class="indicator" onclick="currentSlide(2)"></span>
                             <span class="indicator" onclick="currentSlide(3)"></span>
-                            <span class="indicator" onclick="currentSlide(4)"></span>
                         </div>
                     </div>
                 </div>
@@ -524,73 +563,176 @@
     <!-- Sección de Beneficios -->
     <section class="benefits-section">
         <div class="container">
-            <h2 class="section-title">[TÍTULO DE BENEFICIOS]</h2>
-            <p class="section-description">[DESCRIPCIÓN DE BENEFICIOS]</p>
+            <h2 class="section-title">¿Porque hacer tu sitio con nosotros?</h2>
+            <p class="section-description">En Vintara nuestro objetivo es crear servicios accesibles a todos los tipos de presupuestos</p>
             
             <div class="benefits-grid">
                 <div class="benefit-card">
-                    <h4>[BENEFICIO 1]</h4>
-                    <p>[DESCRIPCIÓN DEL BENEFICIO 1]</p>
+                    <h4>PRECIOS ACCESIBLES</h4>
+                    <p>Contamos con diferentes planes para todos los tipos de presupuestos</p>
                 </div>
                 <div class="benefit-card">
-                    <h4>[BENEFICIO 2]</h4>
-                    <p>[DESCRIPCIÓN DEL BENEFICIO 2]</p>
+                    <h4>SITIOS PARA TODOS</h4>
+                    <p>Con experiencia en varias areas, podemos hacer cualquier tipo de pagina que deses</p>
                 </div>
                 <div class="benefit-card">
-                    <h4>[BENEFICIO 3]</h4>
-                    <p>[DESCRIPCIÓN DEL BENEFICIO 3]</p>
+                    <h4>SOPORTE RAPIDO</h4>
+                    <p>Nuestro personal estara siempre activo para ti, con respuestas rapidas y eficientes</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Proceso -->
-    <section class="process-section">
-        <div class="container">
-            <h2 class="section-title">[TÍTULO DEL PROCESO]</h2>
-            <p class="section-description">[DESCRIPCIÓN DEL PROCESO]</p>
-            
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h4>[PASO 1]</h4>
-                    <p>[DESCRIPCIÓN DEL PASO 1]</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h4>[PASO 2]</h4>
-                    <p>[DESCRIPCIÓN DEL PASO 2]</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h4>[PASO 3]</h4>
-                    <p>[DESCRIPCIÓN DEL PASO 3]</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h4>[PASO 4]</h4>
-                    <p>[DESCRIPCIÓN DEL PASO 4]</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Sección de Planes -->
+        <section class="process-section">
+            <div class="container">
+                <h2 class="section-title">NUESTROS PLANES</h2>
+                <p class="section-description">Elige el plan que mejor se adapte a las necesidades de tu proyecto</p>
+                
+                <table class="pricing-table">
+    <thead>
+        <tr>
+            <th>Características</th>
+            <th>Plan Básico<br><span class="plan-price">$5–$10 USD</span></th>
+            <th>Plan Profesional<br><span class="plan-price">$11–$70 USD</span></th>
+            <th>Plan Empresarial<br><span class="plan-price">$70 USD en adelante</span></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Cantidad de paginas</td>
+            <td class="check" style="color: #ff4444;">10</td>
+            <td class="check" style="color:orange">20</td>
+            <td class="cross" style="color: greenyellow">30+</td>
+        </tr>
+        <tr>
+            <td>Diseño visual personalizado</td>
+            <td class="check">✅</td>
+            <td class="check">✅</td>
+            <td class="check">✅</td>
+        </tr>
+        <tr>
+            <td>Configuración de dominio</td>
+            <td class="check">✅</td>
+            <td class="check">✅</td>
+            <td class="check">✅</td>
+        </tr>
+        <tr>
+            <td>Integración de APIs</td>
+            <td class="check">✅</td>
+            <td class="check">✅</td>
+            <td class="check">✅</td>
+        </tr>
+        <tr>
+            <td>Optimización SEO básica</td>
+            <td class="check">✅</td>
+            <td class="check">✅</td>
+            <td class="check">✅</td>
+        </tr>
+        <tr>
+            <td>Asistencia con hosting</td>
+            <td class="check">✅</td>
+            <td class="check">✅</td>
+            <td class="check">✅</td>
+        </tr>
+        <tr>
+            <td>Desarrollo Back-End</td>
+            <td class="cross">❌</td>
+            <td class="check">✅</td>
+            <td class="check">✅</td>
+        </tr>
+        <tr>
+            <td>Sistemas de cuentas</td>
+            <td class="cross">❌</td>
+            <td class="check">✅</td>
+            <td class="check">✅</td>
+        </tr>
+        <tr>
+            <td>Chats integrados</td>
+            <td class="cross">❌</td>
+            <td class="check">✅</td>
+            <td class="check">✅</td>
+        </tr>
+        <tr>
+            <td>Compras desde el sitio</td>
+            <td class="cross">❌</td>
+            <td class="check">✅</td>
+            <td class="check">✅</td>
+        </tr>
+        <tr>
+            <td>Diseño responsivo</td>
+            <td class="cross">❌</td>
+            <td class="check">✅</td>
+            <td class="check">✅</td>
+        </tr>
+        <tr>
+            <td>Bases de datos</td>
+            <td class="cross">❌</td>
+            <td class="cross">❌</td>
+            <td class="check">✅</td>
+        </tr>
+        <tr>
+            <td>Seguridad avanzada</td>
+            <td class="cross">❌</td>
+            <td class="cross">❌</td>
+            <td class="check">✅</td>
+        </tr>
+        <tr>
+            <td>Auditoría TI (1 mes)</td>
+            <td class="cross">❌</td>
+            <td class="cross">❌</td>
+            <td class="check">✅</td>
+        </tr>
+        <tr>
+            <td>Protección de datos de usuarios</td>
+            <td class="cross">❌</td>
+            <td class="cross">❌</td>
+            <td class="check">✅</td>
+        </tr>
+        <tr>
+            <td>Dashboards y métricas 24/7</td>
+            <td class="cross">❌</td>
+            <td class="cross">❌</td>
+            <td class="check">✅</td>
+        </tr>
+    </tbody>
+</table>
 
+            </div>
+        </section>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/691557000b84a81956c740ed/1j9tlnm8d';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+Tawk_API = Tawk_API || {};
+Tawk_API.onLoad = function(){
+  Tawk_API.hideWidget();
+};
+</script>
+<!--End of Tawk.to Script-->
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>[TÍTULO DE LLAMADA A LA ACCIÓN]</h2>
-            <p>[DESCRIPCIÓN DE LA LLAMADA A LA ACCIÓN]</p>
-            <a href="#contacto" class="cta-button">COMENZAR PROYECTO</a>
+            <h2>¿Listo para tener un sitio web?</h2>
+            <p>Pulsa en "Contactar" y empieza ya a agendar para empezar con el desarrollo de tu sitio web!</p>
+            <button class="cta-button" onclick="Tawk_API.maximize()" style="border:none;cursor:pointer;">Contactar</button>
         </div>
     </section>
-
+   <!-- End CTA Section -->
     <footer id="contacto">
         <div class="container">
             <a href="#home" class="footer-logo">VINTARA.XYZ</a>
             <nav class="footer-nav">
                 <a href="https://discord.gg/h5ZK4wQJMG" target="_blank" class="btn">DISCORD</a>
                 <a href="#" class="btn">REDES</a>
-                <a href="#" class="btn">TERMINOS</a>
+                <a href="/terminos" class="btn">TERMINOS</a>
             </nav>
             <p class="footer-legal">La marca "Vintara" y sucesores aún no es una marca registrada legalmente por ningún registro de la USPTO. © <span id="currentYear"></span> Vintara.xyz. Todos los derechos reservados.</p>
         </div>

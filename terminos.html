@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="LOGO.png" type="image/png">
+    <title>Términos y Condiciones - Vintara.xyz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            border-radius: 0 0 25px 25px;
+            transition: padding 0.3s ease, background-color 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ccc;
+        }
+
+        /* Main Content */
+        main {
+            padding: 120px 40px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: #aaa;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background-color: #222;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 15px;
+        }
+
+        .content-wrapper {
+            background-color: rgba(30, 30, 30, 0.7);
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            line-height: 1.8;
+        }
+
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+            border-bottom: 2px solid #444;
+            padding-bottom: 10px;
+        }
+
+        .section-content {
+            font-size: 1rem;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section-content p {
+            margin-bottom: 15px;
+        }
+
+        .section-content ul {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+
+        .section-content ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .section-content ul li::marker {
+            color: #888;
+        }
+
+        .highlight-box {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #fff;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 10px;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .important-notice {
+            background-color: rgba(255, 50, 50, 0.1);
+            border-left: 4px solid #ff3232;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 30px;
+            background-color: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1c1c1c;
+            padding: 50px 40px 30px;
+            text-align: center;
+            border-top: 1px solid #333;
+            margin-top: 80px;
+        }
+
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 30px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-legal {
+            font-size: 0.75rem;
+            color: #777;
+            margin-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            nav ul li {
+                margin: 0 8px;
+            }
+
+            nav ul li a {
+                font-size: 0.9rem;
+            }
+
+            main {
+                padding: 100px 20px 40px;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .page-subtitle {
+                font-size: 1rem;
+            }
+
+            .content-wrapper {
+                padding: 30px 25px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-content {
+                font-size: 0.95rem;
+            }
+
+            footer {
+                padding: 40px 20px 20px;
+            }
+
+            .footer-logo {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .content-wrapper {
+                padding: 25px 20px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">vintara.xyz</a>
+        <nav>
+            <ul>
+                <li><a href="/#servicios">Servicios</a></li>
+                <li><a href="/#nosotros">Sobre nosotros</a></li>
+                <li><a href="/#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">TÉRMINOS Y CONDICIONES</h1>
+            <p class="page-subtitle">Vintara.xyz</p>
+            <span class="last-updated">Última actualización: Noviembre 2025</span>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="section">
+                <h2 class="section-title">1. Aceptación de los Términos</h2>
+                <div class="section-content">
+                    <p>Al acceder y utilizar los servicios ofrecidos por Vintara.xyz, usted acepta estar legalmente vinculado por estos Términos y Condiciones. Si no está de acuerdo con alguna parte de estos términos, no debe utilizar nuestros servicios.</p>
+                    <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Es responsabilidad del usuario revisar periódicamente esta página para estar al tanto de cualquier cambio. El uso continuado de nuestros servicios después de la publicación de cambios constituye su aceptación de dichos cambios.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">2. Descripción de Servicios</h2>
+                <div class="section-content">
+                    <p>Vintara.xyz ofrece servicios profesionales de diseño y desarrollo, incluyendo pero no limitándose a:</p>
+                    <ul>
+                        <li><strong>Diseño Gráfico:</strong> Renderizado 3D, diseño de logotipos, banners publicitarios e identidad visual completa.</li>
+                        <li><strong>Diseño Web:</strong> Desarrollo de portafolios y páginas web, soporte con dominios personalizados, vinculación de redes sociales y optimización SEO básica.</li>
+                        <li><strong>Eventos Online:</strong> Estructuración de eventos personalizados, gestión de público y personal, propaganda del evento en redes y plataformas interactivas.</li>
+                        <li><strong>Edición de Contenido:</strong> Edición para redes sociales, publicidad, cinematográfica y edición sin límites.</li>
+                    </ul>
+                    <p>Todos los servicios se proporcionan de acuerdo con las especificaciones acordadas entre el cliente y Vintara.xyz.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">3. Proceso de Contratación y Pago</h2>
+                <div class="section-content">
+                    <div class="highlight-box">
+                        <p><strong>POLÍTICA DE PAGO ANTICIPADO:</strong></p>
+                        <p>Para la entrega del producto final es OBLIGATORIO enviar el pago completo antes de recibir los archivos finales. No se entregarán productos terminados sin la confirmación previa del pago total del servicio contratado.</p>
+                    </div>
+                    <p>El proceso de contratación funciona de la siguiente manera:</p>
+                    <ul>
+                        <li>El cliente solicita un presupuesto detallando el servicio requerido.</li>
+                        <li>Vintara.xyz proporciona una cotización con los detalles del servicio, plazo de entrega y precio.</li>
+                        <li>Una vez aceptada la cotización, se solicita el pago completo o un depósito inicial según lo acordado.</li>
+                        <li>El trabajo comienza únicamente después de recibir la confirmación del pago.</li>
+                        <li>El producto final se entrega exclusivamente después de la confirmación del pago total.</li>
+                    </ul>
+                    <p>Los métodos de pago aceptados serán comunicados durante el proceso de cotización y pueden variar según el tipo de servicio y monto.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">4. Política de Reembolsos</h2>
+                <div class="section-content">
+                    <div class="important-notice">
+                        <p><strong>POLÍTICA DE NO REEMBOLSO:</strong></p>
+                        <p>Una vez que el producto final ha sido entregado al cliente, NO SE ACEPTAN REEMBOLSOS bajo ninguna circunstancia. Esto incluye situaciones donde el cliente cambie de opinión, encuentre otra solución, o por cualquier otra razón no especificada en este documento.</p>
+                    </div>
+                    <p>Excepciones únicamente aplicables antes de la entrega final:</p>
+                    <ul>
+                        <li>Si Vintara.xyz no puede cumplir con el servicio contratado por causas atribuibles exclusivamente a la empresa.</li>
+                        <li>Si existe un acuerdo mutuo por escrito entre ambas partes antes de iniciar el proyecto.</li>
+                    </ul>
+                    <p>Es responsabilidad del cliente revisar cuidadosamente todas las previsualizaciones y aprobaciones durante el proceso de desarrollo antes de la entrega final.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">5. Responsabilidad Legal del Contenido</h2>
+                <div class="section-content">
+                    <div class="important-notice">
+                        <p><strong>LIMITACIÓN DE RESPONSABILIDAD:</strong></p>
+                        <p>Al entregar el producto final, Vintara.xyz NO se hace responsable de ningún problema legal, reclamación, demanda, pérdida o daño que pueda surgir del contenido, uso o implementación del producto entregado.</p>
+                    </div>
+                    <p>El cliente acepta y reconoce que:</p>
+                    <ul>
+                        <li>Es el único responsable del contenido que proporciona para ser incluido en el diseño o desarrollo.</li>
+                        <li>Debe asegurarse de tener todos los derechos, licencias y permisos necesarios para utilizar cualquier contenido (textos, imágenes, logos, marcas, etc.) que solicite incluir en el proyecto.</li>
+                        <li>Es responsable del cumplimiento de todas las leyes aplicables relacionadas con el uso y distribución del producto final.</li>
+                        <li>Vintara.xyz no verifica la legalidad, autenticidad o propiedad del contenido proporcionado por el cliente.</li>
+                        <li>El cliente indemnizará y mantendrá indemne a Vintara.xyz de cualquier reclamación de terceros relacionada con el contenido del proyecto.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">6. Modificaciones y Cambios Posteriores</h2>
+                <div class="section-content">
+                    <div class="highlight-box">
+                        <p><strong>POLÍTICA DE MODIFICACIONES:</strong></p>
+                        <p>Para solicitar cualquier cambio o modificación en un servicio ya completado y entregado, es necesario volver a adquirir el servicio como un proyecto nuevo. No se realizan modificaciones gratuitas posteriores a la entrega final del proyecto.</p>
+                    </div>
+                    <p>Detalles importantes sobre modificaciones:</p>
+                    <ul>
+                        <li>Durante el proceso de desarrollo, se permiten revisiones según lo acordado en la cotización inicial.</li>
+                        <li>Una vez entregado el producto final y aprobado por el cliente, cualquier cambio adicional se considera un nuevo proyecto.</li>
+                        <li>Las modificaciones menores pueden cotizarse a menor costo según su complejidad.</li>
+                        <li>Los cambios mayores que requieran rediseño sustancial se cotizarán como un proyecto nuevo completo.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">7. Contenido Prohibido y Normas de Internet</h2>
+                <div class="section-content">
+                    <div class="important-notice">
+                        <p><strong>POLÍTICA DE CONTENIDO PERMITIDO:</strong></p>
+                        <p>Vintara.xyz NO realiza pedidos que incumplan con las normas de internet, leyes aplicables o términos de servicio de plataformas de terceros. Nos reservamos el derecho de rechazar cualquier proyecto que consideremos inapropiado o ilegal.</p>
+                    </div>
+                    <p>No se aceptarán proyectos que incluyan o promuevan:</p>
+                    <ul>
+                        <li>Contenido ilegal, fraudulento o que viole derechos de terceros.</li>
+                        <li>Contenido pornográfico o explicito/inapropiado de menores.</li>
+                        <li>Infracciones de propiedad intelectual, marcas registradas o derechos de autor.</li>
+                        <li>Actividades que violen los términos de servicio de plataformas como Discord, redes sociales, servicios de hosting, etc.</li>
+                        <li>Cualquier contenido que pueda dañar la reputación de Vintara.xyz o sus clientes.</li>
+                    </ul>
+                    <p>Si durante el desarrollo del proyecto se identifica contenido prohibido, Vintara.xyz tiene el derecho de cancelar el proyecto sin obligación de reembolso.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">8. Propiedad Intelectual</h2>
+                <div class="section-content">
+                    <p>Una vez completado el pago total del servicio, todos los derechos de propiedad intelectual del producto final se transfieren al cliente, excepto:</p>
+                    <ul>
+                        <li>Elementos de diseño propios de Vintara.xyz que formen parte de nuestra identidad corporativa.</li>
+                        <li>Código base, frameworks o plantillas que sean de uso general en la industria.</li>
+                        <li>Herramientas, metodologías o procesos internos utilizados para la creación del producto.</li>
+                    </ul>
+                    <p>Vintara.xyz se reserva el derecho de utilizar los proyectos completados como parte de su portafolio público, salvo acuerdo de confidencialidad específico.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">9. Plazos de Entrega</h2>
+                <div class="section-content">
+                    <p>Los plazos de entrega se establecen durante el proceso de cotización y dependen de la complejidad del proyecto. Vintara.xyz hará su mejor esfuerzo para cumplir con los plazos acordados, sin embargo:</p>
+                    <ul>
+                        <li>Los retrasos causados por el cliente (falta de información, retrasos en aprobaciones, etc.) extenderán el plazo de entrega proporcionalmente.</li>
+                        <li>Circunstancias imprevistas o de fuerza mayor pueden afectar los tiempos de entrega.</li>
+                        <li>Vintara.xyz comunicará cualquier retraso anticipado con la mayor antelación posible.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">10. Confidencialidad</h2>
+                <div class="section-content">
+                    <p>Vintara.xyz se compromete a mantener la confidencialidad de toda la información proporcionada por el cliente durante el proceso de contratación y desarrollo del proyecto. Esta información no será compartida con terceros sin el consentimiento expreso del cliente, excepto cuando sea requerido por ley.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">11. Soporte y Mantenimiento</h2>
+                <div class="section-content">
+                    <p>El soporte posterior a la entrega del proyecto puede incluirse según lo acordado en la cotización inicial. El soporte no incluido en el acuerdo original deberá cotizarse por separado. El soporte puede incluir:</p>
+                    <ul>
+                        <li>Asistencia técnica para problemas relacionados con la implementación del producto.</li>
+                        <li>Corrección de errores atribuibles a Vintara.xyz en el producto entregado.</li>
+                        <li>Actualizaciones de seguridad o compatibilidad según lo acordado.</li>
+                    </ul>
+                    <p>El soporte NO incluye modificaciones de diseño, adición de nuevas funcionalidades o cambios en el contenido.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">12. Limitación de Responsabilidad</h2>
+                <div class="section-content">
+                    <p>En ningún caso Vintara.xyz será responsable de daños indirectos, incidentales, especiales, consecuentes o punitivos, incluyendo pero no limitándose a pérdida de beneficios, datos, uso, buena voluntad u otras pérdidas intangibles, resultantes de:</p>
+                    <ul>
+                        <li>El uso o la imposibilidad de usar nuestros servicios.</li>
+                        <li>Cualquier conducta o contenido de terceros en relación con los servicios.</li>
+                        <li>Acceso no autorizado, uso o alteración de sus transmisiones o contenido.</li>
+                        <li>Interrupciones en el servicio o errores técnicos.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">13. Contacto</h2>
+                <div class="section-content">
+                    <p>Para cualquier pregunta sobre estos Términos y Condiciones, puede contactarnos a través de:</p>
+                    <ul>
+                        <li><strong>Discord:</strong> <a href="https://discord.gg/h5ZK4wQJMG" style="color: #fff;">discord.gg/h5ZK4wQJMG</a></li>
+                        <li><strong>Sitio web:</strong> vintara.xyz</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="/" class="btn-back">← VOLVER AL INICIO</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <a href="/" class="footer-logo">VINTARA.XYZ</a>
+        <p class="footer-legal">La marca "Vintara" y sucesores aún no es una marca registrada legalmente por ningún registro de la USPTO. © <span id="currentYear"></span> Vintara.xyz. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Año actual en footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.paddingTop = '10px';
+                header.style.paddingBottom = '10px';
+                header.style.backgroundColor = 'rgba(10, 10, 10, 0.9)';
+                header.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.6)';
+            } else {
+                header.style.paddingTop = '20px';
+                header.style.paddingBottom = '20px';
+                header.style.backgroundColor = 'rgba(30, 30, 30, 0.8)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.5)';
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const hrefAttribute = this.getAttribute('href');
+                if (hrefAttribute && hrefAttribute !== '#') {
+                    const targetElement = document.querySelector(hrefAttribute);
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
