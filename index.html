@@ -6,7 +6,7 @@
     <link rel="icon" href="LOGO.png" type="image/png">
     <title>Vintara.xyz - Diseño sin límites</title>
     <style>
-        /* Reseteo y estilos generales */
+        /* General */
         * {
             margin: 0;
             padding: 0;
@@ -47,7 +47,6 @@
         nav ul li a { color: #fff; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; }
         nav ul li a:hover { color: #ccc; }
 
-        /* Hero section */
         .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 80px 40px 40px; overflow: hidden; text-align: center; z-index: 1; }
         .background-lines { position: absolute; top: 0; left: 0; width: 110%; height: 100%; z-index: -1; opacity: 0.4; object-fit: cover; user-select: none; pointer-events: none; }
         .hero-content { display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
@@ -56,13 +55,11 @@
         .hero-logo img { display: block; max-width: 100%; height: auto; filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2)); }
         h1 { font-size: 4rem; font-weight: bold; margin-bottom: 30px; letter-spacing: -1px; line-height: 1.1; color: #fff; }
 
-        /* Animación de deslizamiento para H1 */
         .slide-in { display: inline-block; width: 100%; text-align: center; }
         .slide-in span { display: block; opacity: 0; transform: translateX(-50px); animation: slideIn 1s ease-out forwards; }
         .slide-in span:last-child { animation-delay: 0.3s; }
         @keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
 
-        /* Botones CTA */
         .cta-buttons { display: flex; flex-direction: column; align-items: center; margin-top: 30px; gap: 15px; width: 100%; }
         .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 25px; border: 2px solid #fff; border-radius: 5px; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease; cursor: pointer; width: 100%; max-width: 300px; color: #fff; }
         .btn-primary { background-color: #fff; color: #000; }
@@ -73,13 +70,11 @@
         .btn .icon svg { width: 18px; height: 14px; fill: currentColor; }
         .arrow-down { margin-left: 8px; }
 
-        /* Estilos comunes para secciones */
         section { padding: 100px 40px; min-height: auto; opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; background-color: #000; position: relative; z-index: 1; }
         section.hero { opacity: 1; transform: translateY(0); }
         section.visible { opacity: 1; transform: translateY(0); }
         .section-titulo { font-size: 3rem; font-weight: bold; margin-bottom: 50px; text-align: left; width: 100%; max-width: 1400px; margin-left: auto; margin-right: auto; color: #fff; }
 
-        /* Sección de Servicios */
         .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1400px; margin: 0 auto; }
         .servicio { background-color: #222; border-radius: 10px; padding: 30px 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; height: 100%; display: flex; flex-direction: column; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
         .servicio:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); }
@@ -90,33 +85,24 @@
         .servicio-lista li::before { content: '\2713'; position: absolute; left: 0; color: #888; font-weight: bold; }
         .servicio-boton { display: block; background-color: #fff; color: #000; text-align: center; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: background-color 0.3s ease, color 0.3s ease; margin-top: auto; }
         .servicio-boton:hover { background-color: #333; color: #fff; }
-        /* Nuevo servicio centrado: si es el último y único en su 'fila conceptual' */
-        .servicio.centered-last-item:last-child:nth-child(odd), /* Para 2 columnas */
-        .servicio.centered-last-item:last-child:nth-child(4n+1) /* Si es el primero de una fila en 4 cols (ej.) */
+        .servicio.centered-last-item:last-child:nth-child(odd), 
+        .servicio.centered-last-item:last-child:nth-child(4n+1) 
         {
-             /* En un grid auto-fit, si este es el único item en la última fila,
-                podemos intentar centrarlo si su celda no ocupa todo el ancho.
-                Una forma es que el item en sí no se estire. */
-            /* justify-self: center; */ /* Centra el item en su celda de grid */
-             /* O, si el item debe ocupar la celda y centrar su contenido */
-            /* text-align: center; */
         }
 
 
-        /* Sección Sobre Nosotros */
         .nosotros { display: flex; flex-direction: column; align-items: center; }
         .nosotros .section-titulo { text-align: center; }
         .nosotros-contenido { max-width: 900px; margin: 0 auto; background-color: rgba(30, 30, 30, 0.7); border-radius: 15px; padding: 35px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); backdrop-filter: blur(12px); }
         .nosotros-logo { font-size: 2.5rem; font-weight: bold; text-align: center; margin-bottom: 25px; color: #eee; }
         .nosotros-texto { font-size: 1.05rem; line-height: 1.7; text-align: justify; color: #ddd; }
 
-        /* Sección Páginas */
         .paginas .section-titulo { color: #fff; }
         .paginas-slider-container { 
             position: relative; 
             max-width: 1400px; 
             margin: 0 auto; 
-            padding: 0; /* Eliminamos padding horizontal aquí, se maneja en media query */
+            padding: 0; 
         }
         .paginas-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; gap: 25px; padding-bottom: 20px; padding-left: 15px; padding-right: 15px; /* Padding para que las tarjetas no se peguen a los bordes en móvil */}
         .paginas-slider::-webkit-scrollbar { display: none; }
@@ -130,23 +116,22 @@
         .pagina-boton:hover { background-color: #333; color: #fff; }
         .pagina-footer { padding: 12px 25px; font-size: 0.8rem; color: #888; border-top: 1px solid #333; margin-top: 20px; }
 
-        /* Flechas de scroll para Paginas Destacadas */
         .slider-arrow {
-            display: none; /* Ocultas por defecto y en móvil */
-            align-items: center; /* Para centrar el glifo de flecha */
-            justify-content: center; /* Para centrar el glifo de flecha */
+            display: none; 
+            align-items: center; 
+            justify-content: center; 
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente blanco */
+            background-color: rgba(255, 255, 255, 0.1); 
             color: white;
             border: none;
-            width: 44px; /* Ancho fijo */
-            height: 44px; /* Alto fijo */
+            width: 44px; 
+            height: 44px; 
             cursor: pointer;
             z-index: 10;
             border-radius: 50%;
-            font-size: 1.5rem; /* Tamaño del glifo */
+            font-size: 1.5rem; 
             line-height: 1;
             transition: background-color 0.3s ease, opacity 0.3s ease;
         }
@@ -156,11 +141,10 @@
         .slider-arrow:disabled { opacity: 0.3; cursor: default; background-color: rgba(255, 255, 255, 0.05); }
 
 
-        /* Indicador de scroll */
         .paginas-scroll-indicator { position: relative; height: 4px; background-color: #333; margin: 25px auto 0; border-radius: 4px; overflow: hidden; max-width: 300px; width: 80%; }
         .paginas-scroll-thumb { position: absolute; height: 100%; background-color: #fff; border-radius: 4px; left: 0; width: 0; transform: translateX(0); }
 
-        /* Footer */
+
         footer { background-color: #1c1c1c; padding: 50px 40px 30px; text-align: center; border-top: 1px solid #333; position: relative; z-index: 5; }
         .footer-logo { font-size: 2.5rem; font-weight: bold; color: #fff; margin-bottom: 30px; text-decoration: none; display: block; }
         .footer-nav { margin-bottom: 40px; }
@@ -168,8 +152,7 @@
         .footer-nav .btn:hover { background-color: #444; color: #fff; }
         .footer-legal { font-size: 0.75rem; color: #777; margin-top: 30px; }
 
-        /* --- Responsive --- */
-        @media (min-width: 768px) { /* Tabletas y Desktops Pequeños */
+        @media (min-width: 768px) {
             h1 { font-size: 5rem; }
             .hero { text-align: left; }
             .hero-content { flex-direction: row; justify-content: space-between; align-items: center; }
@@ -183,54 +166,44 @@
             .section-titulo { font-size: 4rem; }
             
             .pagina-card { flex-basis: calc(50% - 12.5px); min-width: 350px; }
-            .paginas-slider { scroll-snap-type: initial; /* Desactivar snap en desktop donde hay flechas */ padding-left: 0; padding-right: 0; /* Quitar padding interno si hay flechas */ }
-            .paginas-slider-container { padding: 0 60px; /* Espacio para las flechas en el contenedor */ }
-            .slider-arrow { display: flex; } /* Mostrar flechas en desktop */
+            .paginas-slider { scroll-snap-type: initial; padding-left: 0; padding-right: 0; }
+            .paginas-slider-container { padding: 0 60px; }
+            .slider-arrow { display: flex; } 
 
             .footer-nav { display: flex; justify-content: center; gap: 20px; }
             .footer-nav .btn { margin-bottom: 0; }
 
-            /* Centrado del 4to servicio (ejemplo) */
             .servicios-grid.has-four-items .servicio:nth-child(4):last-child {
-                 /* Asumiendo que el grid naturalmente pone 3 items por fila */
-                 /* y este es el único en la segunda fila. */
-                 grid-column: 2 / 3; /* Lo coloca en la segunda columna de una grid de 3 */
-                 /* Si el grid-template-columns es repeat(auto-fit, ...), este enfoque es menos predecible.
-                    Una alternativa es hacer que el 4to item ocupe todo el ancho de la fila
-                    y centrar su contenido interno si es necesario. */
-                 /* grid-column: 1 / -1; */
-                 /* justify-self: center; */
+                 grid-column: 2 / 3;
             }
         }
 
-        @media (min-width: 992px) { /* Desktops Medianos */
+        @media (min-width: 992px) { 
             .section-titulo { font-size: 4.5rem; }
             .pagina-card { flex-basis: calc(33.33% - 17px); }
             .servicios-grid.has-four-items {
-                /* Si queremos 3 columnas fijas para el escenario de centrado del 4to item */
-                /* grid-template-columns: repeat(3, 1fr); */
             }
         }
 
-        @media (min-width: 1200px) { /* Desktops Grandes */
+        @media (min-width: 1200px) { 
             header, section:not(.hero), footer { padding-left: 60px; padding-right: 60px; }
             h1 { font-size: 5.5rem; }
             .section-titulo { font-size: 5rem; }
             .hero-logo { flex-basis: 350px; }
             .hero-logo img { max-width: 350px; }
-            .paginas-slider-container { padding: 0 70px; /* Más espacio para flechas */ }
+            .paginas-slider-container { padding: 0 70px;  }
             .slider-arrow.prev { left: 20px; }
             .slider-arrow.next { right: 20px; }
 
         }
 
-        @media (max-width: 767px) { /* Específicamente para ocultar flechas en móvil */
+        @media (max-width: 767px) { 
             .slider-arrow { display: none !important; }
-            .paginas-slider-container { padding: 0; /* Sin padding extra si no hay flechas */ }
+            .paginas-slider-container { padding: 0;  }
             .pagina-card { flex: 0 0 85%; min-width: 0; }
         }
 
-        @media (max-width: 480px) { /* Móviles Pequeños */
+        @media (max-width: 480px) { 
             header { padding: 15px 20px; }
             .logo { font-size: 1rem; }
             nav ul li { margin: 0 8px; }
@@ -422,7 +395,6 @@ Tawk_API.onLoad = function(){
     </footer>
 
     <script>
-        // --- Script Header Scroll ---
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (!header) return;
@@ -439,7 +411,6 @@ Tawk_API.onLoad = function(){
             } catch (e) { console.error("Error header scroll:", e); }
         });
 
-        // --- Script Navegación Suave ---
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const hrefAttribute = this.getAttribute('href');
@@ -452,9 +423,7 @@ Tawk_API.onLoad = function(){
             });
         });
 
-        // --- Scripts DOMContentLoaded ---
         document.addEventListener('DOMContentLoaded', function() {
-            // --- Intersection Observer ---
             try {
                 const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
                 const observerCallback = (entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); /* observer.unobserve(entry.target); */ } }); };
@@ -464,10 +433,9 @@ Tawk_API.onLoad = function(){
                 else { console.warn("No sections for IntersectionObserver (excluding .hero)."); }
             } catch (e) { console.error("Error IntersectionObserver:", e); }
 
-            // --- Páginas Slider con Flechas ---
             try {
                 const slider = document.getElementById('paginasSlider');
-                const scrollThumb = document.getElementById('scrollThumb'); // Para el indicador visual
+                const scrollThumb = document.getElementById('scrollThumb'); 
                 const prevArrow = document.getElementById('sliderArrowPrev');
                 const nextArrow = document.getElementById('sliderArrowNext');
                 const scrollIndicator = document.querySelector('.paginas-scroll-indicator');
@@ -480,25 +448,23 @@ Tawk_API.onLoad = function(){
                             const cardStyle = getComputedStyle(firstCard);
                             const cardMargin = parseFloat(cardStyle.marginLeft) + parseFloat(cardStyle.marginRight);
                             const sliderGap = parseFloat(getComputedStyle(slider).gap);
-                             // Priorizar el ancho de la tarjeta + gap. Si no hay gap explícito, usar margen.
                             return firstCard.offsetWidth + (isNaN(sliderGap) ? cardMargin : sliderGap) ;
                         }
-                        return 300; // Fallback scroll amount
+                        return 300; 
                     };
 
                     const updateArrowState = () => {
-                        if(window.innerWidth < 768) { // Ocultar en móvil
+                        if(window.innerWidth < 768) { 
                             prevArrow.style.display = 'none';
                             nextArrow.style.display = 'none';
-                            if(scrollIndicator) scrollIndicator.style.display = 'block'; // Mostrar indicador en móvil
+                            if(scrollIndicator) scrollIndicator.style.display = 'block'; 
                             return;
                         }
-                        // Mostrar en desktop
+                        
                         prevArrow.style.display = 'flex';
                         nextArrow.style.display = 'flex';
-                        if(scrollIndicator) scrollIndicator.style.display = 'none'; // Ocultar indicador en desktop
+                        if(scrollIndicator) scrollIndicator.style.display = 'none'; 
 
-                        // Tolerancia pequeña para evitar problemas con decimales
                         const tolerance = 5;
                         prevArrow.disabled = slider.scrollLeft <= tolerance;
                         nextArrow.disabled = slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - tolerance);
@@ -517,17 +483,16 @@ Tawk_API.onLoad = function(){
                     
                     slider.addEventListener('scroll', updateArrowState, { passive: true });
                     window.addEventListener('resize', updateArrowState);
-                    updateArrowState(); // Llamada inicial
+                    updateArrowState(); 
                 } else {
                     if (!slider) console.warn("#paginasSlider not found.");
                     if (!prevArrow) console.warn("#sliderArrowPrev not found.");
                     if (!nextArrow) console.warn("#sliderArrowNext not found.");
                 }
                 
-                // --- Scroll Thumb Indicator (mantener para móvil si se desea) ---
                 function updateScrollThumbIndicator() {
                     if (!slider || !scrollThumb || !scrollIndicator || window.innerWidth >= 768) {
-                        if(scrollThumb) scrollThumb.style.width = '0'; // Ocultar si no es necesario
+                        if(scrollThumb) scrollThumb.style.width = '0'; 
                         return;
                     }
 
@@ -550,19 +515,17 @@ Tawk_API.onLoad = function(){
                  if (slider && scrollThumb && scrollIndicator) {
                     slider.addEventListener('scroll', updateScrollThumbIndicator, { passive: true });
                     window.addEventListener('resize', updateScrollThumbIndicator);
-                    updateScrollThumbIndicator(); // Llamada inicial
+                    updateScrollThumbIndicator(); 
                  }
 
 
             } catch (e) { console.error("Error en slider de páginas o flechas:", e); }
 
-            // --- Año Actual en Footer ---
             try {
                 const yearSpan = document.getElementById('currentYear');
                 if (yearSpan) { yearSpan.textContent = new Date().getFullYear(); }
             } catch (e) { console.error("Error footer year:", e); }
 
-            // Verificar si hay 4 servicios y añadir clase para centrado (ejemplo)
             const serviciosGrid = document.getElementById('serviciosGrid');
             if (serviciosGrid && serviciosGrid.children.length === 4) {
                 serviciosGrid.classList.add('has-four-items');
