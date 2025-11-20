@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diseño Grafico - Vintara.xyz</title>
+    <title>Diseño Web - Vintara.xyz</title>
     <style>
         * {
             margin: 0;
@@ -11,28 +11,47 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-black: #000000;
+            --secondary-black: #111111;
+            --tertiary-black: #1a1a1a;
+            --card-bg: #222222;
+            --border-color: #333333;
+            --white: #ffffff;
+            --gray: #cccccc;
+            --text-gray: rgba(255, 255, 255, 0.9);
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background: #000000;
-            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: var(--primary-black);
+            color: var(--white);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Header */
+        /* Header Mejorado */
         header {
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(0, 0, 0, 0.98);
             padding: 20px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            transition: padding 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 12px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         .header-content {
@@ -42,34 +61,88 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #ffffff;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
             text-decoration: none;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 40px;
+            align-items: center;
         }
 
         .nav-links a {
-            color: #ffffff;
+            color: var(--white);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: #cccccc;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--white);
+            transition: width 0.3s ease;
         }
 
-        /* Hero Section */
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button2 {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .cta-button2:hover {
+            background: var(--white);
+            color: var(--primary-black);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* Hero Mejorado */
         .hero {
-            background: #000000;
-            padding: 150px 0 100px;
+            background: var(--primary-black);
+            padding: 180px 0 120px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
         }
 
         .hero::before {
@@ -79,432 +152,630 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23222" points="0,0 1000,300 1000,1000 0,700"/></svg>');
-            opacity: 0.3;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            color: #ffffff;
-            font-weight: 300;
-            letter-spacing: 2px;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            margin-bottom: 24px;
+            font-weight: 200;
+            letter-spacing: 8px;
+            background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            opacity: 0.8;
-            max-width: 600px;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            opacity: 0.85;
+            max-width: 700px;
             margin: 0 auto;
+            line-height: 1.8;
         }
 
-        /* Main Content */
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--white);
+            border-radius: 25px;
+            position: relative;
+        }
+
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            width: 6px;
+            height: 6px;
+            background: var(--white);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            animation: scrollDot 2s infinite;
+        }
+
+        @keyframes scrollDot {
+            0% { top: 8px; opacity: 1; }
+            100% { top: 32px; opacity: 0; }
+        }
+
+        /* Main Content Mejorado */
         .main-content {
-            padding: 100px 0;
+            padding: 120px 0;
         }
 
         .content-section {
-            margin-bottom: 80px;
+            margin-bottom: 120px;
         }
 
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #ffffff;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            font-weight: 200;
             text-align: center;
+            letter-spacing: 4px;
         }
 
         .section-description {
-            font-size: 1.2rem;
-            opacity: 0.9;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            opacity: 0.85;
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto 60px;
+            max-width: 900px;
+            margin: 0 auto 80px;
+            line-height: 1.8;
         }
 
         .content-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
+            gap: 80px;
             align-items: center;
             margin-bottom: 80px;
         }
 
         .content-text h3 {
-            font-size: 2rem;
-            margin-bottom: 25px;
-            color: #ffffff;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            margin-bottom: 24px;
+            font-weight: 300;
+            letter-spacing: 2px;
         }
 
         .content-text p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            opacity: 0.9;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 30px;
+            opacity: 0.85;
+            line-height: 1.8;
         }
 
         .features-list {
             list-style: none;
-            margin-top: 30px;
+            margin-top: 40px;
         }
 
         .features-list li {
-            padding: 12px 0;
-            padding-left: 30px;
+            padding: 16px 0 16px 40px;
             position: relative;
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             opacity: 0.9;
+            transition: all 0.3s ease;
+            border-left: 2px solid transparent;
+        }
+
+        .features-list li:hover {
+            padding-left: 50px;
+            border-left-color: var(--white);
         }
 
         .features-list li::before {
             content: '✓';
             position: absolute;
             left: 0;
-            color: #ffffff;
+            color: var(--white);
             font-weight: bold;
+            font-size: 1.4rem;
+            transition: transform 0.3s ease;
         }
 
-        /* Carousel */
+        .features-list li:hover::before {
+            transform: scale(1.2);
+        }
+
+        /* Carousel Mejorado */
         .carousel-container {
             position: relative;
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
         .carousel {
             position: relative;
             overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
-            background: #111111;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(255, 255, 255, 0.08);
+            background: var(--secondary-black);
+            border: 1px solid var(--border-color);
         }
 
         .carousel-slide {
             display: none;
             width: 100%;
-            height: 350px;
-            background: #111111;
-            border: 2px solid #333333;
-            border-radius: 15px;
+            height: 400px;
+            background: var(--secondary-black);
             overflow: hidden;
         }
 
         .carousel-slide.active {
             display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .carousel-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide:hover img {
+            transform: scale(1.05);
         }
 
         .carousel-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            border: none;
-            padding: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--white);
+            border: 1px solid var(--border-color);
+            padding: 16px 20px;
             cursor: pointer;
-            font-size: 1.5rem;
-            transition: all 0.3s;
-            border-radius: 5px;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
         }
 
         .carousel-nav:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: var(--white);
+            color: var(--primary-black);
+            transform: translateY(-50%) scale(1.1);
         }
 
-        .carousel-prev {
-            left: 10px;
-        }
-
-        .carousel-next {
-            right: 10px;
-        }
+        .carousel-prev { left: 15px; }
+        .carousel-next { right: 15px; }
 
         .carousel-indicators {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
         }
 
         .indicator {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
+            width: 40px;
+            height: 4px;
             background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            margin: 0 5px;
+            border-radius: 2px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
         .indicator.active {
-            background: #ffffff;
+            background: var(--white);
+            width: 60px;
         }
 
-        /* Benefits Section */
-        .benefits-section {
-            background: #111111;
-            padding: 80px 0;
-            margin: 80px 0;
+        .indicator:hover {
+            background: var(--gray);
         }
+
+        /* Benefits Section Mejorada */
+        .benefits-section {
+            background: var(--secondary-black);
+            padding: 120px 0;
+            margin: 120px 0;
+            position: relative;
+        }
+
+        .benefits-section::before,
+        .benefits-section::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+        }
+
+        .benefits-section::before { top: 0; }
+        .benefits-section::after { bottom: 0; }
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
             gap: 40px;
-            margin-top: 60px;
+            margin-top: 80px;
         }
 
         .benefit-card {
-            background: #222222;
-            padding: 40px;
-            border-radius: 10px;
+            background: var(--card-bg);
+            padding: 50px 40px;
+            border-radius: 20px;
             text-align: center;
-            transition: transform 0.3s;
+            transition: all 0.4s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .benefit-card:hover::before {
+            left: 100%;
         }
 
         .benefit-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            border-color: var(--white);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
         }
 
         .benefit-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #ffffff;
+            font-size: clamp(1.3rem, 2vw, 1.6rem);
+            margin-bottom: 24px;
+            font-weight: 400;
+            letter-spacing: 2px;
         }
 
         .benefit-card p {
-            opacity: 0.9;
+            opacity: 0.85;
+            line-height: 1.8;
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
         }
 
-        /* Process Section */
+        /* Pricing Table Mejorada */
         .process-section {
-            padding: 80px 0;
+            padding: 120px 0;
         }
 
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+        .pricing-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--secondary-black);
+            border-radius: 20px;
+            overflow: hidden;
             margin-top: 60px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
         }
 
-        .process-step {
+        .pricing-table th,
+        .pricing-table td {
+            padding: 20px 24px;
             text-align: center;
-            padding: 30px;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .step-number {
-            display: inline-block;
-            width: 60px;
-            height: 60px;
-            background: #ffffff;
-            color: #000000;
-            border-radius: 50%;
-            line-height: 60px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
+        .pricing-table thead tr {
+            background: var(--tertiary-black);
         }
 
-        .process-step h4 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: #ffffff;
+        .pricing-table th {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-weight: 400;
+            letter-spacing: 1px;
+            padding: 30px 24px;
         }
 
-        .process-step p {
+        .pricing-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+            background: var(--tertiary-black);
+            padding-left: 30px;
+        }
+
+        .pricing-table tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        .pricing-table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .pricing-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .plan-price {
+            font-weight: 600;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            color: var(--white);
+            display: block;
+            margin-top: 8px;
             opacity: 0.9;
         }
 
-        /* CTA Section */
+        .check, .cross {
+            font-size: 1.8rem;
+        }
+
+        /* CTA Section Mejorada */
         .cta-section {
-            background: #ffffff;
-            color: #000000;
-            padding: 80px 0;
+            background: var(--white);
+            color: var(--primary-black);
+            padding: 120px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(0, 0, 0, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.03) 0%, transparent 50%);
         }
 
         .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            position: relative;
         }
 
         .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: 40px;
             opacity: 0.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            position: relative;
         }
 
         .cta-button {
-            display: inline-block;
-            background: #000000;
-            color: #ffffff;
-            padding: 15px 40px;
+            background: var(--primary-black);
+            color: var(--white);
+            padding: 18px 50px;
             border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            margin: 0 10px;
+            border: none;
+            font-weight: 600;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
 
-        .cta-button.secondary {
-            background: transparent;
-            color: #000000;
-            border: 2px solid #000000;
-        }
-
-        .cta-button.secondary:hover {
-            background: #000000;
-            color: #ffffff;
-        }
-
-        /* Footer */
+        /* Footer Mejorado */
         footer {
-            background: #000000;
-            padding: 60px 0 30px;
+            background: var(--primary-black);
+            padding: 80px 0 40px;
             text-align: center;
+            border-top: 1px solid var(--border-color);
         }
 
         .footer-logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #ffffff;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--white);
             text-decoration: none;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             display: inline-block;
+            letter-spacing: 2px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            transform: scale(1.05);
         }
 
         .footer-nav {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 24px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
 
         .footer-nav .btn {
-            background: #ffffff;
-            color: #000000;
-            padding: 12px 25px;
-            border-radius: 25px;
+            background: var(--white);
+            color: var(--primary-black);
+            padding: 14px 32px;
+            border-radius: 50px;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
 
         .footer-nav .btn:hover {
-            background: #cccccc;
-            transform: translateY(-2px);
+            background: var(--gray);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
         }
 
         .footer-legal {
-            opacity: 0.7;
+            opacity: 0.6;
             font-size: 0.9rem;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            line-height: 1.8;
+            padding: 0 20px;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
+        /* Responsive Mejorado */
+        @media (max-width: 968px) {
             .nav-links {
                 display: none;
             }
 
-            .footer-nav {
-                flex-direction: column;
-                gap: 15px;
+            .mobile-menu-btn {
+                display: block;
             }
 
-            .benefits-grid {
+            .content-grid {
                 grid-template-columns: 1fr;
+                gap: 60px;
             }
 
+            .carousel-nav {
+                padding: 12px 16px;
+                font-size: 1.1rem;
+            }
+
+            .pricing-table {
+                font-size: 0.9rem;
+            }
+
+            .pricing-table th,
+            .pricing-table td {
+                padding: 16px 12px;
+            }
+
+            .pricing-table td:first-child {
+                padding-left: 16px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding: 140px 0 80px;
+                min-height: 80vh;
+            }
+
+            .benefits-grid,
             .process-steps {
                 grid-template-columns: 1fr;
             }
+
+            .benefit-card {
+                padding: 40px 30px;
+            }
+
+            .footer-nav {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .carousel-slide {
+                height: 300px;
+            }
+
+            .carousel-nav {
+                padding: 10px 14px;
+            }
         }
-            .pricing-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-family: 'Segoe UI', sans-serif;
-        background-color: #1a1a1a;
-        color: #fff;
-        margin-top: 40px;
-    }
 
-    .pricing-table th,
-    .pricing-table td {
-        border: 1px solid #444;
-        padding: 15px;
-        text-align: center;
-    }
+        /* Animaciones de scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
 
-    .pricing-table th {
-        background-color: #292929;
-        font-size: 1.2rem;
-        color: #ffffff;
-    }
-
-    .pricing-table td:first-child {
-        text-align: left;
-        font-weight: bold;
-        background-color: #292929;
-        color: #ffffff;
-    }
-
-    .check {
-        font-size: 1.5rem;
-        color: #00ff88;
-    }
-
-    .cross {
-        font-size: 1.5rem;
-        color: #ff4444;
-    }
-
-    .plan-price {
-        font-weight: bold;
-        font-size: 1rem;
-        color: #ffffff;
-        margin-top: 5px;
-    }
-
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
-    <header>
+    <header id="header">
         <div class="container">
             <div class="header-content">
-                <a href="/" class="logo">vintara.xyz</a>
+                <a href="/" class="logo">VINTARA.XYZ</a>
                 <nav class="nav-links">
-                <button class="cta-button2" onclick="Tawk_API.maximize()" style="border: 2px solid #ffffff; padding: 10px 20px; border-radius: 25px; transition: all 0.3s; cursor: pointer;">Contactar</button>
+                    <button class="cta-button2" onclick="alert('Contactar - Tawk.to se cargará aquí')">Contactar</button>
                 </nav>
+                <button class="mobile-menu-btn" onclick="alert('Menú móvil')">☰</button>
             </div>
         </div>
     </header>
@@ -513,42 +784,44 @@
         <div class="container">
             <div class="hero-content">
                 <h1>DISEÑO WEB</h1>
-                <p>¿Quieres hacer un portafolio o landing page para tu empresa?</p>
+                <p>¿Quieres hacer un portafolio o landing page para tu empresa? Creamos experiencias digitales excepcionales que convierten visitantes en clientes.</p>
             </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
         </div>
     </section>
 
     <section class="main-content">
         <div class="container">
-            <!-- Sección Principal -->
-            <div class="content-section">
-                <h2 class="section-title">CARACTERISTICAS</h2>
+            <div class="content-section fade-in">
+                <h2 class="section-title">CARACTERÍSTICAS</h2>
                 
                 <div class="content-grid">
                     <div class="content-text">
-                        <h3>Nuestras caracteristicas</h3>
-                        <p>¿Que podemos hacer?</p>
+                        <h3>Nuestras Características</h3>
+                        <p>Desarrollamos sitios web modernos con las últimas tecnologías y mejores prácticas de la industria.</p>
                         <ul class="features-list">
-                            <li>Elementos Interactivos</li>
-                            <li>Vinculacion De Redes</li>
-                            <li>Optimizacion SEO</li>
-                            <li>Otras Mas</li>
+                            <li>Elementos Interactivos y Dinámicos</li>
+                            <li>Vinculación de Redes Sociales</li>
+                            <li>Optimización SEO Avanzada</li>
+                            <li>Diseño Responsivo Multi-dispositivo</li>
                         </ul>
                     </div>
                     <div class="carousel-container">
                         <div class="carousel" id="main-carousel">
                             <div class="carousel-slide active">
-                                <img src="example1_dw.gif" alt="Ejemplo 1">
+                                <img src="example1_dw.gif" alt="Ejemplo de diseño web 1">
                             </div>
                             <div class="carousel-slide">
-                                <img src="example2_dw.gif" alt="Ejemplo 2">
+                                <img src="example2_dw.gif" alt="Ejemplo de diseño web 2">
                             </div>
                             <div class="carousel-slide">
-                                <img src="example3_dw.gif" alt="Ejemplo 3">
+                                <img src="example3_dw.gif" alt="Ejemplo de diseño web 3">
                             </div>
                         </div>
-                        <button class="carousel-nav carousel-prev" onclick="changeSlide(-1)">❮</button>
-                        <button class="carousel-nav carousel-next" onclick="changeSlide(1)">❯</button>
+                        <button class="carousel-nav carousel-prev" onclick="changeSlide(-1)" aria-label="Anterior">❮</button>
+                        <button class="carousel-nav carousel-next" onclick="changeSlide(1)" aria-label="Siguiente">❯</button>
                         <div class="carousel-indicators">
                             <span class="indicator active" onclick="currentSlide(1)"></span>
                             <span class="indicator" onclick="currentSlide(2)"></span>
@@ -560,179 +833,161 @@
         </div>
     </section>
 
-    <!-- Sección de Beneficios -->
     <section class="benefits-section">
         <div class="container">
-            <h2 class="section-title">¿Porque hacer tu sitio con nosotros?</h2>
-            <p class="section-description">En Vintara nuestro objetivo es crear servicios accesibles a todos los tipos de presupuestos</p>
+            <h2 class="section-title">¿POR QUÉ ELEGIRNOS?</h2>
+            <p class="section-description">En Vintara nuestro objetivo es crear servicios accesibles para todos los tipos de presupuestos, sin sacrificar calidad ni profesionalismo.</p>
             
             <div class="benefits-grid">
-                <div class="benefit-card">
+                <div class="benefit-card fade-in">
                     <h4>PRECIOS ACCESIBLES</h4>
-                    <p>Contamos con diferentes planes para todos los tipos de presupuestos</p>
+                    <p>Contamos con diferentes planes diseñados para adaptarse a todos los tipos de presupuestos y necesidades empresariales.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card fade-in">
                     <h4>SITIOS PARA TODOS</h4>
-                    <p>Con experiencia en varias areas, podemos hacer cualquier tipo de pagina que deses</p>
+                    <p>Con experiencia en múltiples áreas, podemos desarrollar cualquier tipo de página web que necesites para tu negocio.</p>
                 </div>
-                <div class="benefit-card">
-                    <h4>SOPORTE RAPIDO</h4>
-                    <p>Nuestro personal estara siempre activo para ti, con respuestas rapidas y eficientes</p>
+                <div class="benefit-card fade-in">
+                    <h4>SOPORTE RÁPIDO</h4>
+                    <p>Nuestro equipo estará siempre disponible para ti, proporcionando respuestas rápidas y soluciones eficientes.</p>
                 </div>
             </div>
         </div>
     </section>
 
-        <!-- Sección de Planes -->
-        <section class="process-section">
-            <div class="container">
-                <h2 class="section-title">NUESTROS PLANES</h2>
-                <p class="section-description">Elige el plan que mejor se adapte a las necesidades de tu proyecto</p>
-                
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">NUESTROS PLANES</h2>
+            <p class="section-description">Elige el plan que mejor se adapte a las necesidades de tu proyecto</p>
+            
+            <div style="overflow-x: auto;">
                 <table class="pricing-table">
-    <thead>
-        <tr>
-            <th>Características</th>
-            <th>Plan Básico<br><span class="plan-price">$5–$10 USD</span></th>
-            <th>Plan Profesional<br><span class="plan-price">$11–$70 USD</span></th>
-            <th>Plan Empresarial<br><span class="plan-price">$70 USD en adelante</span></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Cantidad de paginas</td>
-            <td class="check" style="color: #ff4444;">10</td>
-            <td class="check" style="color:orange">20</td>
-            <td class="cross" style="color: greenyellow">30+</td>
-        </tr>
-        <tr>
-            <td>Diseño visual personalizado</td>
-            <td class="check">✅</td>
-            <td class="check">✅</td>
-            <td class="check">✅</td>
-        </tr>
-        <tr>
-            <td>Configuración de dominio</td>
-            <td class="check">✅</td>
-            <td class="check">✅</td>
-            <td class="check">✅</td>
-        </tr>
-        <tr>
-            <td>Integración de APIs</td>
-            <td class="check">✅</td>
-            <td class="check">✅</td>
-            <td class="check">✅</td>
-        </tr>
-        <tr>
-            <td>Optimización SEO básica</td>
-            <td class="check">✅</td>
-            <td class="check">✅</td>
-            <td class="check">✅</td>
-        </tr>
-        <tr>
-            <td>Asistencia con hosting</td>
-            <td class="check">✅</td>
-            <td class="check">✅</td>
-            <td class="check">✅</td>
-        </tr>
-        <tr>
-            <td>Desarrollo Back-End</td>
-            <td class="cross">❌</td>
-            <td class="check">✅</td>
-            <td class="check">✅</td>
-        </tr>
-        <tr>
-            <td>Sistemas de cuentas</td>
-            <td class="cross">❌</td>
-            <td class="check">✅</td>
-            <td class="check">✅</td>
-        </tr>
-        <tr>
-            <td>Chats integrados</td>
-            <td class="cross">❌</td>
-            <td class="check">✅</td>
-            <td class="check">✅</td>
-        </tr>
-        <tr>
-            <td>Compras desde el sitio</td>
-            <td class="cross">❌</td>
-            <td class="check">✅</td>
-            <td class="check">✅</td>
-        </tr>
-        <tr>
-            <td>Diseño responsivo</td>
-            <td class="cross">❌</td>
-            <td class="check">✅</td>
-            <td class="check">✅</td>
-        </tr>
-        <tr>
-            <td>Bases de datos</td>
-            <td class="cross">❌</td>
-            <td class="cross">❌</td>
-            <td class="check">✅</td>
-        </tr>
-        <tr>
-            <td>Seguridad avanzada</td>
-            <td class="cross">❌</td>
-            <td class="cross">❌</td>
-            <td class="check">✅</td>
-        </tr>
-        <tr>
-            <td>Auditoría TI (1 mes)</td>
-            <td class="cross">❌</td>
-            <td class="cross">❌</td>
-            <td class="check">✅</td>
-        </tr>
-        <tr>
-            <td>Protección de datos de usuarios</td>
-            <td class="cross">❌</td>
-            <td class="cross">❌</td>
-            <td class="check">✅</td>
-        </tr>
-        <tr>
-            <td>Dashboards y métricas 24/7</td>
-            <td class="cross">❌</td>
-            <td class="cross">❌</td>
-            <td class="check">✅</td>
-        </tr>
-    </tbody>
-</table>
-
+                    <thead>
+                        <tr>
+                            <th>Características</th>
+                            <th>Plan Básico<br><span class="plan-price">$5–$10 USD</span></th>
+                            <th>Plan Profesional<br><span class="plan-price">$11–$70 USD</span></th>
+                            <th>Plan Empresarial<br><span class="plan-price">$70+ USD</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cantidad de páginas</td>
+                            <td style="color: #ff4444;">10</td>
+                            <td style="color: orange;">20</td>
+                            <td style="color: greenyellow;">30+</td>
+                        </tr>
+                        <tr>
+                            <td>Diseño visual personalizado</td>
+                            <td class="check">✅</td>
+                            <td class="check">✅</td>
+                            <td class="check">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Configuración de dominio</td>
+                            <td class="check">✅</td>
+                            <td class="check">✅</td>
+                            <td class="check">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Integración de APIs</td>
+                            <td class="check">✅</td>
+                            <td class="check">✅</td>
+                            <td class="check">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Optimización SEO básica</td>
+                            <td class="check">✅</td>
+                            <td class="check">✅</td>
+                            <td class="check">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Asistencia con hosting</td>
+                            <td class="check">✅</td>
+                            <td class="check">✅</td>
+                            <td class="check">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Desarrollo Back-End</td>
+                            <td class="cross">❌</td>
+                            <td class="check">✅</td>
+                            <td class="check">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Sistemas de cuentas</td>
+                            <td class="cross">❌</td>
+                            <td class="check">✅</td>
+                            <td class="check">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Chats integrados</td>
+                            <td class="cross">❌</td>
+                            <td class="check">✅</td>
+                            <td class="check">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Compras desde el sitio</td>
+                            <td class="cross">❌</td>
+                            <td class="check">✅</td>
+                            <td class="check">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Diseño responsivo</td>
+                            <td class="cross">❌</td>
+                            <td class="check">✅</td>
+                            <td class="check">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Bases de datos</td>
+                            <td class="cross">❌</td>
+                            <td class="cross">❌</td>
+                            <td class="check">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Seguridad avanzada</td>
+                            <td class="cross">❌</td>
+                            <td class="cross">❌</td>
+                            <td class="check">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Auditoría TI (1 mes)</td>
+                            <td class="cross">❌</td>
+                            <td class="cross">❌</td>
+                            <td class="check">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Protección de datos de usuarios</td>
+                            <td class="cross">❌</td>
+                            <td class="cross">❌</td>
+                            <td class="check">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Dashboards y métricas 24/7</td>
+                            <td class="cross">❌</td>
+                            <td class="cross">❌</td>
+                            <td class="check">✅</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </section>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/691557000b84a81956c740ed/1j9tlnm8d';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-Tawk_API = Tawk_API || {};
-Tawk_API.onLoad = function(){
-  Tawk_API.hideWidget();
-};
-</script>
-<!--End of Tawk.to Script-->
-    <!-- CTA Section -->
+        </div>
+    </section>
+
     <section class="cta-section">
         <div class="container">
-            <h2>¿Listo para tener un sitio web?</h2>
-            <p>Pulsa en "Contactar" y empieza ya a agendar para empezar con el desarrollo de tu sitio web!</p>
-            <button class="cta-button" onclick="Tawk_API.maximize()" style="border:none;cursor:pointer;">Contactar</button>
+            <h2>¿Listo para tener un sitio web profesional?</h2>
+            <p>Pulsa en "Contactar" y empieza hoy a agendar el desarrollo de tu sitio web. Transformemos tu visión digital en realidad.</p>
+            <button class="cta-button" onclick="alert('Contactar - Tawk.to se cargará aquí')">Contactar Ahora</button>
         </div>
     </section>
-   <!-- End CTA Section -->
+
     <footer id="contacto">
         <div class="container">
-            <a href="#home" class="footer-logo">VINTARA.XYZ</a>
+            <a href="#" class="footer-logo">VINTARA.XYZ</a>
             <nav class="footer-nav">
-                <a href="https://discord.gg/h5ZK4wQJMG" target="_blank" class="btn">DISCORD</a>
+                <a href="https://discord.gg/h5ZK4wQJMG" target="_blank" rel="noopener" class="btn">DISCORD</a>
                 <a href="#" class="btn">REDES</a>
-                <a href="/terminos" class="btn">TERMINOS</a>
+                <a href="/terminos" class="btn">TÉRMINOS</a>
             </nav>
             <p class="footer-legal">La marca "Vintara" y sucesores aún no es una marca registrada legalmente por ningún registro de la USPTO. © <span id="currentYear"></span> Vintara.xyz. Todos los derechos reservados.</p>
         </div>
@@ -771,7 +1026,7 @@ Tawk_API.onLoad = function(){
         // Auto-advance carousel
         setInterval(() => {
             changeSlide(1);
-        }, 7900);
+        }, 5000);
 
         // Set current year
         document.getElementById('currentYear').textContent = new Date().getFullYear();
@@ -789,6 +1044,73 @@ Tawk_API.onLoad = function(){
                 }
             });
         });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Keyboard navigation for carousel
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+
+        // Touch swipe support for carousel
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const carousel = document.getElementById('main-carousel');
+
+        carousel.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        carousel.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                changeSlide(1);
+            }
+            if (touchEndX > touchStartX + 50) {
+                changeSlide(-1);
+            }
+        }
     </script>
 </body>
 </html>
